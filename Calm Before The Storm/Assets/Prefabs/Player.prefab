@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rayDistanceDown: 1
-  _rayDistanceUp: 2
+  _playerLength: 1
 --- !u!50 &1678796357055170475
 Rigidbody2D:
   serializedVersion: 4
@@ -142,8 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd19718e9b0fd8249a88b3b2ea62cada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 2000
-  _jumpForce: 500
+  _movementSpeed: 1500
+  _jumpForce: 200
 --- !u!1 &96653688661040105
 GameObject:
   m_ObjectHideFlags: 0

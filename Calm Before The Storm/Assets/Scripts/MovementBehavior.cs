@@ -3,12 +3,24 @@ using UnityEngine.InputSystem;
 
 public class MovementBehavior : MonoBehaviour
 {
+    [SerializeField] private Vector2 _desiredMovementDirection = Vector2.zero;
     [SerializeField] private float _movementSpeed = 2f;
-    [SerializeField] private float _jumpForce = 500f;
+   
 
     private InputAction _moveInput;
     private InputAction _jumpInput;
     private Rigidbody2D _rigidBody;
+
+    public Vector2 DesiredMovementDirection
+    {
+        get { return _desiredMovementDirection; }
+        set { _desiredMovementDirection = value; }
+    }
+
+    public void Jump(float force)
+    {
+        if(_rigidBody) _rigidBody.AddForce(new Vector2(0f, force));
+    }
 
     private void Start()
     {
@@ -22,11 +34,9 @@ public class MovementBehavior : MonoBehaviour
 
     private void Update()
     {
-        float move2D = _moveInput.ReadValue<float>();
-        Debug.Log(move2D);
-        float horizontal = move2D * _movementSpeed * Time.deltaTime;
-        Vector2 newPos = new Vector2(transform.position.x + horizontal, transform.position.y);
-        _rigidBody.velocity = new Vector2(move2D * _movementSpeed * Time.deltaTime, _rigidBody.velocity.y);
+        float moveX = _moveInput.ReadValue<float>();
+        Debug.Log(moveX);
+        _rigidBody.velocity = new Vector2(moveX * _movementSpeed * Time.deltaTime, _rigidBody.velocity.y);
     }
 
     private void OnJump(InputAction.CallbackContext context)
