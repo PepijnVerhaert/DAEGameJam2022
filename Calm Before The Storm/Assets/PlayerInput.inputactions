@@ -6,9 +6,27 @@
             "id": "c3ff59c9-f92a-4372-be0e-939f960ae7a8",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Movement",
                     "type": "Button",
                     "id": "a7fd6c79-0d06-49ba-8ea2-20ea8ca0107f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "f0b852de-33e9-4314-8806-7bf3a9faf752",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Fish",
+                    "type": "Button",
+                    "id": "4dca3b40-00fd-42d1-a9f1-4618f8081861",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -17,13 +35,13 @@
             ],
             "bindings": [
                 {
-                    "name": "Movement",
+                    "name": "DPad",
                     "id": "43bfc04b-697d-4b66-9619-32d0844eab44",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Movement",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -34,7 +52,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -45,42 +63,64 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Movement",
-                    "id": "f4e634f0-d791-42f4-bf39-7113b01c135a",
+                    "name": "Joystick",
+                    "id": "961c5daa-d52d-41f6-ad89-599e2dcecb8e",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Movement",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "negative",
-                    "id": "889bbf3c-0f68-4644-bd27-478aae3b37f8",
+                    "id": "ffed9e3d-1ba3-421f-8125-33754ec97828",
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "positive",
-                    "id": "4c5757bc-dc40-4964-8b45-8e55253194a0",
+                    "id": "958c0c22-0be1-4dad-a4bd-ffebdf1850e5",
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c2ae5d9e-d570-4447-9bb0-e849c8b661af",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "009caacf-fceb-42fc-8d88-bbc6bbcd1c90",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fish",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
