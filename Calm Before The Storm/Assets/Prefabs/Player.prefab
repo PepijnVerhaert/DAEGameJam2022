@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d628ea415283daa47ae93fc9e4fd6f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _jumpForce: 400
   _rayDistanceDown: 1
   _playerLength: 1
 --- !u!50 &1678796357055170475
@@ -143,7 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 1500
-  _jumpForce: 200
 --- !u!1 &96653688661040105
 GameObject:
   m_ObjectHideFlags: 0

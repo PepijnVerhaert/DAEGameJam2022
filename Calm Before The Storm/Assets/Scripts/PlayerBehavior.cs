@@ -50,7 +50,7 @@ public class PlayerBehavior : MonoBehaviour
         if (!_rigidBody) return;
 
         //if not negative y velocity return
-        if (_rigidBody.velocity.y > 0.0f)
+        if (_rigidBody.velocity.y > 0.01f)
         {
             _isGrounded = false;
             gameObject.layer = 6;
