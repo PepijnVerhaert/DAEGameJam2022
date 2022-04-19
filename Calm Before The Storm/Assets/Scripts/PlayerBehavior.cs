@@ -13,7 +13,7 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] private float _rayDistanceDown = 0.1f;
     [SerializeField] private float _negativeYCollisionThreshHold = 0.1f;
     [SerializeField] private float _playerLength = 1.0f;
-    [SerializeField] private float _maxSlopeAngle = 40f;
+    [SerializeField] private float _maxSlopeAngle = 30f;
 
     private InputAction _moveInput;
     private InputAction _jumpInput;
@@ -62,17 +62,14 @@ public class PlayerBehavior : MonoBehaviour
         RaycastHit2D hitInfoDown = Physics2D.Raycast(transform.position, -transform.up
             , _rayDistanceDown, LayerMask.GetMask(_platformLayer));
         Debug.DrawRay(transform.position, -transform.up, Color.red);
-        //Debug.DrawLine(transform.position, -transform.up);
 
         // Slope raycasts
-        var rotation = Quaternion.AngleAxis(_maxSlopeAngle, transform.forward);
-        Vector3 dir = rotation * -transform.up;
+        Vector3 dir = Quaternion.AngleAxis(_maxSlopeAngle, transform.forward) * -transform.up;
         RaycastHit2D hitInfoRight = Physics2D.Raycast(transform.position, dir
             , _rayDistanceDown, LayerMask.GetMask(_platformLayer));
         Debug.DrawRay(transform.position, dir, Color.blue);
 
-        rotation = Quaternion.AngleAxis(-_maxSlopeAngle, transform.forward);
-        dir = rotation * -transform.up;
+        dir = Quaternion.AngleAxis(-_maxSlopeAngle, transform.forward) * -transform.up;
         RaycastHit2D hitInfoLeft = Physics2D.Raycast(transform.position, dir
             , _rayDistanceDown, LayerMask.GetMask(_platformLayer));
         Debug.DrawRay(transform.position, dir, Color.green);
