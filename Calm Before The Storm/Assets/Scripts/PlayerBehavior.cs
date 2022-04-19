@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Rigidbody2D _rigidBody = null;
+    private const string _platformLayer = "Platform";
+    [SerializeField]
+    private float _rayDistance = 0.1f;
+
     void Start()
-    {
-        
+    {   
+        _rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        CheckPlatformCollision();
+    }
+
+    private void CheckPlatformCollision()
+    {
+        if (!_rigidBody) return;
+
+        //if not negative y velocity return
+        if (_rigidBody.velocity.y >= 0.0f)
+        {
+            //_rigidBody.gravityScale = 1.0f;
+            return;
+        }
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, -transform.up
+            , _rayDistance, LayerMask.GetMask(_platformLayer));
+
+        if(hitInfo.collider)
+        {
+            //_rigidBody.velocity = new Vector2(_rigidBody.velocity.x, 0.0f);
+            //_rigidBody.gravityScale = 0.0f;
+            _rigidBody.constraints = RigidbodyConstraints2D.FreezePositionY;
+        }
     }
 }
