@@ -44,8 +44,14 @@ public class PlayerBehavior : MonoBehaviour
         if(hitInfoDown.collider)
         {
             //if raycast up doesnt collide w platf 
-            _isGrounded = true;
-            gameObject.layer = LayerMask.GetMask("Default");
+            RaycastHit2D hitInfoUp = Physics2D.Raycast(transform.position, transform.up
+            , _rayDistanceUp, LayerMask.GetMask(_platformLayer));
+
+            if (!hitInfoUp.collider)
+            {
+                _isGrounded = true;
+                gameObject.layer = LayerMask.GetMask("Default");
+            }
         }
         else
         {
