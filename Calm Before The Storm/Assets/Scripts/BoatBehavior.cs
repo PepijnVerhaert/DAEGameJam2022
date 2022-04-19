@@ -27,11 +27,14 @@ public class BoatBehavior : MonoBehaviour
     [SerializeField]
     float _driftStrength = 1;
 
+
+    float _OriginalX = 0;
     float _driftAngle = 0;
     bool _rotateLeft = true;
     // Start is called before the first frame update
     void Start()
     {
+        _OriginalX = transform.position.x;
     }
 
     // Update is called once per frame
@@ -80,6 +83,8 @@ public class BoatBehavior : MonoBehaviour
                 }
             }
 
+            _driftAngle += _driftSpeed * Time.deltaTime;
+            transform.TransformPoint(Mathf.Sin(_driftAngle) * _driftStrength, transform.position.y, transform.position.z);
         }
     }
 }
