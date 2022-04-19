@@ -11,6 +11,7 @@ public class PlayerBehavior : MonoBehaviour
     private const string _platformIgnore = "PlatformIgnore";
     [SerializeField] private float _jumpForce = 500f;
     [SerializeField] private float _rayDistanceDown = 0.1f;
+    [SerializeField] private float _negativeYCollisionThreshHold = 0.1f;
     [SerializeField] private float _playerLength = 1.0f;
 
     private InputAction _moveInput;
@@ -30,7 +31,7 @@ public class PlayerBehavior : MonoBehaviour
         PlayerInput characterInput = GetComponent<PlayerInput>();
         _moveInput = characterInput.actions["Movement"];
 
-        _jumpInput = characterInput.actions["Fish"];
+        _jumpInput = characterInput.actions["Jump"];
         _jumpInput.performed += OnJump;
     }
 
@@ -50,7 +51,7 @@ public class PlayerBehavior : MonoBehaviour
         if (!_rigidBody) return;
 
         //if not negative y velocity return
-        if (_rigidBody.velocity.y > 0.01f)
+        if (_rigidBody.velocity.y > _negativeYCollisionThreshHold)
         {
             _isGrounded = false;
             gameObject.layer = 6;
