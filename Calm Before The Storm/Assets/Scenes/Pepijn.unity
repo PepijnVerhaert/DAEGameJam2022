@@ -283,6 +283,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _isCalm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _calmTiltSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _stormTiltSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _calmTiltStrength
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _stormTiltStrength
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _tiltSpeedMaxChange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _driftSpeedMaxChange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _TiltStrengthMaxChange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _tiltStrengthMaxChange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _driftStrengthMaxChange
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5934263390685339332, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
       propertyPath: m_Name
       value: Boat

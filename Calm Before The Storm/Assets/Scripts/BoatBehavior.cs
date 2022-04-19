@@ -8,85 +8,117 @@ public class BoatBehavior : MonoBehaviour
     bool _isCalm = true;
 
     [SerializeField]
-    float _calmRotationSpeed = 5f;
+    private float _calmTiltSpeed = 10;
     [SerializeField]
-    float _stormRotationSpeed = 5f;
+    private float _calmTiltStrength = 1;
 
     [SerializeField]
-    float _calmMaxAngle = 5f;
+    private float _stormTiltSpeed = 10;
     [SerializeField]
-    float _stormMaxAngle = 5f;
+    private float _stormTiltStrength = 1;
 
     [SerializeField]
-    float _calmMinAngle = -5f;
+    private float _driftSpeed = 10;
     [SerializeField]
-    float _stormMinAngle = -5f;
+    private float _driftStrength = 1;
 
+    //gradual tilt change
     [SerializeField]
-    float _driftSpeed = 10;
+    private float _tiltSpeedMaxChange = 10;
     [SerializeField]
-    float _driftStrength = 1;
+    private float _tiltStrengthMaxChange = 10;
+    private float _currentTiltSpeed = 0;
+    private float _currentTiltStrength = 0;
 
+    //gradual drift change
+    [SerializeField]
+    private float _driftSpeedMaxChange = 10;
+    [SerializeField]
+    private float _driftStrengthMaxChange = 10;
+    private float _currentDriftSpeed = 0;
+    private float _currentDriftStrength = 0;
 
-    Vector3 _originalPos;
-    float _driftAngle = 0;
-    bool _rotateLeft = true;
+    private Vector3 _originalPos;
+    private float _driftAngle = 0;
+    private float _tiltAngle = 0;
     // Start is called before the first frame update
     void Start()
     {
         _originalPos = transform.position;
+
+        _currentTiltSpeed = _calmTiltSpeed;
+        _currentTiltStrength = _calmTiltStrength;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        float angle = transform.rotation.eulerAngles.z;
-        if(angle > 180f)
-        {
-            angle -= 360f;
-        }
+        float angle = 0;
         if (_isCalm)
         {
-            if (_rotateLeft)
+            //update calm tilt
+            _currentTiltSpeed -= _tiltSpeedMaxChange * Time.deltaTime;
+            if(_currentTiltSpeed <= _calmTiltSpeed)
             {
-                transform.Rotate(0, 0, _calmRotationSpeed * Time.deltaTime);
-                if(angle >= _calmMaxAngle)
-                {
-                    _rotateLeft = false;
-                }
+                _currentTiltSpeed = _calmTiltSpeed;
             }
-            else
+            _currentTiltStrength -= _tiltStrengthMaxChange * Time.deltaTime;
+            if(_currentTiltStrength <= _calmTiltStrength)
             {
-                transform.Rotate(0, 0, -_calmRotationSpeed * Time.deltaTime);
-                if (angle <= _calmMinAngle)
-                {
-                    _rotateLeft = true;
-                }
+                _currentTiltStrength = _calmTiltStrength;
+            }
+
+            //update calm drift
+            _currentDriftSpeed -= _driftSpeedMaxChange * Time.deltaTime;
+            if (_currentDriftSpeed <= 0f)
+            {
+                _currentDriftSpeed = 0f;
+            }
+            _currentDriftStrength -= _driftStrengthMaxChange * Time.deltaTime;
+            if (_currentDriftStrength <= 0f)
+            {
+                _currentDriftStrength = 0f;
             }
         }
         else
         {
-            if (_rotateLeft)
+            //update storm tilt
+            _currentTiltSpeed += _tiltSpeedMaxChange * Time.deltaTime;
+            if (_currentTiltSpeed >= _stormTiltSpeed)
             {
-                transform.Rotate(0, 0, _stormRotationSpeed * Time.deltaTime);
-                if (angle >= _stormMaxAngle)
-                {
-                    _rotateLeft = false;
-                }
-            }
-            else
-            {
-                transform.Rotate(0, 0, -_stormRotationSpeed * Time.deltaTime);
-                if (angle <= _stormMinAngle)
-                {
-                    _rotateLeft = true;
-                }
+                _currentTiltSpeed = _stormTiltSpeed;
             }
 
-            _driftAngle += _driftSpeed * Time.deltaTime;
-            Vector3 newPos = _originalPos;
-            newPos.x = Mathf.Sin(_driftAngle) * _driftStrength;
-            transform.SetPositionAndRotation(newPos, transform.rotation);
+            _currentTiltStrength += _tiltStrengthMaxChange * Time.deltaTime;
+            if (_currentTiltStrength >= _stormTiltStrength)
+            {
+                _currentTiltStrength = _stormTiltStrength;
+            }
+
+            //update storm drift
+            _currentDriftSpeed += _driftSpeedMaxChange * Time.deltaTime;
+            if (_currentDriftSpeed >= _driftSpeed)
+            {
+                _currentDriftSpeed = _driftSpeed;
+            }
+
+            _currentDriftStrength += _driftStrengthMaxChange * Time.deltaTime;
+            if (_currentDriftStrength >= _driftStrength)
+            {
+                _currentDriftStrength = _driftStrength;
+            }
         }
+        //calculate z tilting
+        _tiltAngle += _currentTiltSpeed * Time.deltaTime;
+        angle = Mathf.Sin(_tiltAngle) * _currentTiltStrength;
+
+        //calculate x drifting
+        _driftAngle += _currentDriftSpeed * Time.deltaTime;
+        Vector3 newPos = _originalPos;
+        newPos.x = Mathf.Sin(_driftAngle) * _currentDriftStrength;
+
+        //update boat transform
+        transform.SetPositionAndRotation(newPos, Quaternion.Euler(0, 0, angle));
     }
 }
