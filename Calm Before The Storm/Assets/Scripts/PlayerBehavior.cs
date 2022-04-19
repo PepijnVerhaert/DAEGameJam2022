@@ -26,16 +26,15 @@ public class PlayerBehavior : MonoBehaviour
         //if not negative y velocity return
         if (_rigidBody.velocity.y >= 0.0f)
         {
-            //_rigidBody.gravityScale = 1.0f;
+            _rigidBody.constraints = RigidbodyConstraints2D.None;
             return;
         }
+
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, -transform.up
             , _rayDistance, LayerMask.GetMask(_platformLayer));
 
         if(hitInfo.collider)
         {
-            //_rigidBody.velocity = new Vector2(_rigidBody.velocity.x, 0.0f);
-            //_rigidBody.gravityScale = 0.0f;
             _rigidBody.constraints = RigidbodyConstraints2D.FreezePositionY;
         }
     }
