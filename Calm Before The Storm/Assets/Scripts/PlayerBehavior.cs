@@ -13,6 +13,7 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] private float _rayDistanceDown = 0.1f;
     [SerializeField] private float _negativeYCollisionThreshHold = 0.1f;
     [SerializeField] private float _playerLength = 1.0f;
+    [SerializeField] private float _maxSlopeAngle = 30f;
 
     private InputAction _moveInput;
     private InputAction _jumpInput;
@@ -60,8 +61,20 @@ public class PlayerBehavior : MonoBehaviour
 
         RaycastHit2D hitInfoDown = Physics2D.Raycast(transform.position, -transform.up
             , _rayDistanceDown, LayerMask.GetMask(_platformLayer));
+        Debug.DrawRay(transform.position, -transform.up, Color.red);
 
-        if(hitInfoDown.collider)
+        // Slope raycasts
+        Vector3 dir = Quaternion.AngleAxis(_maxSlopeAngle, transform.forward) * -transform.up;
+        RaycastHit2D hitInfoRight = Physics2D.Raycast(transform.position, dir
+            , _rayDistanceDown, LayerMask.GetMask(_platformLayer));
+        Debug.DrawRay(transform.position, dir, Color.blue);
+
+        dir = Quaternion.AngleAxis(-_maxSlopeAngle, transform.forward) * -transform.up;
+        RaycastHit2D hitInfoLeft = Physics2D.Raycast(transform.position, dir
+            , _rayDistanceDown, LayerMask.GetMask(_platformLayer));
+        Debug.DrawRay(transform.position, dir, Color.green);
+
+        if (hitInfoDown.collider || hitInfoLeft.collider || hitInfoRight.collider)
         {
             //if raycast up doesnt collide w platf 
             Vector2 origin = new Vector2(transform.position.x, transform.position.y + _playerLength / 2.0f);
