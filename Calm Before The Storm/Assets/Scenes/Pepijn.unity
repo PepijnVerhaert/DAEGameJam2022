@@ -312,6 +312,10 @@ PrefabInstance:
       value: -2.69
       objectReference: {fileID: 0}
     - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _driftStrength
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
       propertyPath: _rotationSpeed
       value: 14.98
       objectReference: {fileID: 0}
