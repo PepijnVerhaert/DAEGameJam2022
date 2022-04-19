@@ -42,7 +42,7 @@ public class PlayerBehavior : MonoBehaviour
     private void Update()
     {
         float moveX = _moveInput.ReadValue<float>();
-        _movementBehavior.DesiredMovementDirection = new Vector2(moveX, 0f);
+        _movementBehavior.MoveX(moveX);
     }
 
     private void CheckPlatformCollision()
@@ -82,6 +82,7 @@ public class PlayerBehavior : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext context)
     {
+        if (!_isGrounded) return;
         _rigidBody.AddForce(new Vector2(0f, _jumpForce));
     }
 }

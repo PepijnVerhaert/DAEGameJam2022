@@ -2,16 +2,9 @@ using UnityEngine;
 
 public class MovementBehavior : MonoBehaviour
 {
-    [SerializeField] private Vector2 _desiredMovementDirection = Vector2.zero;
     [SerializeField] private float _movementSpeed = 2f;
    
     private Rigidbody2D _rigidBody;
-
-    public Vector2 DesiredMovementDirection
-    {
-        get { return _desiredMovementDirection; }
-        set { _desiredMovementDirection = value; }
-    }
 
     public void Jump(float force)
     {
@@ -23,8 +16,13 @@ public class MovementBehavior : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    private void LateUpdate()
+    public void Move(Vector2 moveDirection)
     {
-        _rigidBody.velocity = new Vector2(DesiredMovementDirection.x * _movementSpeed * Time.deltaTime, _rigidBody.velocity.y);
+        _rigidBody.velocity = moveDirection * _movementSpeed * Time.deltaTime;
+    }
+
+    public void MoveX(float valueX)
+    {
+        _rigidBody.velocity = new Vector2(valueX * _movementSpeed * Time.deltaTime, _rigidBody.velocity.y);
     }
 }
