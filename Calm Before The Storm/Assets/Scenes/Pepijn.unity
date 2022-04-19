@@ -321,11 +321,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
       propertyPath: _stormMaxAngle
-      value: 9.12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
       propertyPath: _stormMinAngle
-      value: -8.29
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
       propertyPath: _calmRotationSpeed
@@ -333,7 +333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
       propertyPath: _stormRotationSpeed
-      value: 13.2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2841014757986032151, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
       propertyPath: m_LocalScale.y
