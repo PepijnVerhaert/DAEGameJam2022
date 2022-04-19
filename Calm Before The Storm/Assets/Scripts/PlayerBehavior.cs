@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerBehavior : MonoBehaviour
 {
@@ -12,17 +13,36 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] private float _rayDistanceDown = 0.1f;
     [SerializeField] private float _playerLength = 1.0f;
 
+    private InputAction _moveInput;
+    private InputAction _jumpInput;
+
+    private MovementBehavior _movementBehavior;
+
     private bool _isGrounded = false;
 
     void Start()
-    {   
+    {
+        _movementBehavior = GetComponent<MovementBehavior>();
+
         _rigidBody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
+
+        PlayerInput characterInput = GetComponent<PlayerInput>();
+        _moveInput = characterInput.actions["Movement"];
+
+        _jumpInput = characterInput.actions["Fish"];
+        _jumpInput.performed += OnJump;
     }
 
     void FixedUpdate()
     {
         CheckPlatformCollision();
+    }
+
+    private void Update()
+    {
+        float moveX = _moveInput.ReadValue<float>();
+        _movementBehavior.DesiredMovementDirection = new Vector2(moveX, 0f);
     }
 
     private void CheckPlatformCollision()
@@ -58,5 +78,10 @@ public class PlayerBehavior : MonoBehaviour
             _isGrounded = false;
             gameObject.layer = 6;
         }
+    }
+
+    private void OnJump(InputAction.CallbackContext context)
+    {
+        _rigidBody.AddForce(new Vector2(0f, _jumpForce));
     }
 }
