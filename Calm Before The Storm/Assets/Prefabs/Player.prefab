@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rayDistanceDown: 1
-  _rayDistanceUp: 1
+  _rayDistanceUp: 2
 --- !u!50 &1678796357055170475
 Rigidbody2D:
   serializedVersion: 4
