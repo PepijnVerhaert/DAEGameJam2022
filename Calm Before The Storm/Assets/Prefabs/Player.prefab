@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d628ea415283daa47ae93fc9e4fd6f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rayDistance: 0.05
+  _rayDistanceDown: 1
+  _rayDistanceUp: 1
 --- !u!50 &1678796357055170475
 Rigidbody2D:
   serializedVersion: 4
