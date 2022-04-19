@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 06596bd81d44d13488f38baa40b83164, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.41960785}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.44705883}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5934263390685339333}
-  - component: {fileID: 1695797198708625073}
+  - component: {fileID: 2020201738334834708}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Untagged
@@ -123,7 +123,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1695797198708625073
+--- !u!114 &2020201738334834708
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5934263390685339332}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ba0e4c19012dcf43b36fa83ec875522, type: 3}
+  m_Script: {fileID: 11500000, guid: aa74fa25b95403c439960a7fad48859c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1132491767691709033

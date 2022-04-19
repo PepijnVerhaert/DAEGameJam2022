@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoatLogic : MonoBehaviour
+public class BoatBehavior : MonoBehaviour
 {
+    
+
     // Start is called before the first frame update
     void Start()
     {
