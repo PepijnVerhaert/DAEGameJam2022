@@ -136,12 +136,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isCalm: 1
-  _calmRotationSpeed: 5
-  _stormRotationSpeed: 5
-  _calmMaxAngle: 5
-  _stormMaxAngle: 5
-  _calmMinAngle: -5
-  _stormMinAngle: -5
+  _calmRotationSpeed: 1.57
+  _stormRotationSpeed: 20
+  _calmMaxAngle: 3.61
+  _stormMaxAngle: 15
+  _calmMinAngle: -2.69
+  _stormMinAngle: -15
+  _driftSpeed: 1
+  _driftStrength: 1
 --- !u!1001 &1132491767691709033
 PrefabInstance:
   m_ObjectHideFlags: 0
