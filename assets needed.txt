@@ -1,0 +1,8 @@
+fish
+bird
+boat
+waves
+player
+more waves
+shy
+clouds
