@@ -271,6 +271,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _driftMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _driftMin
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _driftSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _calmMaxAngle
+      value: 3.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _calmMinAngle
+      value: -2.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _rotationSpeed
+      value: 14.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _stormMaxAngle
+      value: 9.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _stormMinAngle
+      value: -8.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _calmRotationSpeed
+      value: 1.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020201738334834708, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
+      propertyPath: _stormRotationSpeed
+      value: 13.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5934263390685339332, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
       propertyPath: m_Name
       value: Boat
@@ -281,7 +321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5934263390685339333, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.64
       objectReference: {fileID: 0}
     - target: {fileID: 5934263390685339333, guid: 5d13a4cee3a710c4793801fd27eb2afb, type: 3}
       propertyPath: m_LocalPosition.y
