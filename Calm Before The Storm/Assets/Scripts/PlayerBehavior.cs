@@ -26,8 +26,6 @@ public class PlayerBehavior : MonoBehaviour
         //if not negative y velocity return
         if (_rigidBody.velocity.y >= 0.0f)
         {
-            _rigidBody.constraints = RigidbodyConstraints2D.None;
-            _rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
             //_rigidBody.gravityScale = 1.0f;
             return;
         }
