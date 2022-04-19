@@ -26,14 +26,12 @@ public class MovementBehavior : MonoBehaviour
         Debug.Log(move2D);
         float horizontal = move2D * _movementSpeed * Time.deltaTime;
         Vector2 newPos = new Vector2(transform.position.x + horizontal, transform.position.y);
-        _rigidBody.MovePosition(newPos);
+        _rigidBody.velocity = new Vector2(move2D * _movementSpeed * Time.deltaTime, _rigidBody.velocity.y);
     }
 
     private void OnJump(InputAction.CallbackContext context)
     {
         Debug.Log("Jump");
-        _rigidBody.constraints = RigidbodyConstraints2D.None;
-        _rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         _rigidBody.AddForce(new Vector2(0f, _jumpForce));
     }
 }

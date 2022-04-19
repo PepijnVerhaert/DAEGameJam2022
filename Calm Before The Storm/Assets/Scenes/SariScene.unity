@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5306477326317883623, guid: 447595c6837e17d4a813557a3c46f08e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.48
       objectReference: {fileID: 0}
     - target: {fileID: 5306477326317883623, guid: 447595c6837e17d4a813557a3c46f08e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -355,46 +355,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 376434278857464733, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
-      propertyPath: m_Actions
-      value: 
-      objectReference: {fileID: -944628639613478452, guid: 2222898f11eb07a4ca1f0872dbe1d003, type: 3}
-    - target: {fileID: 376434278857464733, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
-      propertyPath: m_DefaultActionMap
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 376434278857464733, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
-      propertyPath: m_NotificationBehavior
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 376434278857464733, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 376434278857464733, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_ActionId
-      value: a7fd6c79-0d06-49ba-8ea2-20ea8ca0107f
-      objectReference: {fileID: 0}
-    - target: {fileID: 376434278857464733, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_ActionId
-      value: f0b852de-33e9-4314-8806-7bf3a9faf752
-      objectReference: {fileID: 0}
-    - target: {fileID: 376434278857464733, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
-      value: 4dca3b40-00fd-42d1-a9f1-4618f8081861
-      objectReference: {fileID: 0}
-    - target: {fileID: 376434278857464733, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_ActionName
-      value: Player/Movement[/Keyboard/a,/Keyboard/d]
-      objectReference: {fileID: 0}
-    - target: {fileID: 376434278857464733, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_ActionName
-      value: Player/Jump
-      objectReference: {fileID: 0}
-    - target: {fileID: 376434278857464733, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
-      value: Player/Fish
-      objectReference: {fileID: 0}
     - target: {fileID: 1379751759622584430, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -439,70 +399,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1678796357055170475, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
---- !u!1 &1956433753 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1049077426281411, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
-  m_PrefabInstance: {fileID: 1956433752}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1956433759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956433753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 2222898f11eb07a4ca1f0872dbe1d003, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a7fd6c79-0d06-49ba-8ea2-20ea8ca0107f
-    m_ActionName: Player/Movement[/XInputControllerWindows/dpad/down,/XInputControllerWindows/dpad/right,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f0b852de-33e9-4314-8806-7bf3a9faf752
-    m_ActionName: Player/Jump[/XInputControllerWindows/buttonSouth]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4dca3b40-00fd-42d1-a9f1-4618f8081861
-    m_ActionName: Player/Fish[/XInputControllerWindows/buttonWest]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!114 &1956433761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956433753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd19718e9b0fd8249a88b3b2ea62cada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movementSpeed: 20
-  _jumpForce: 200
