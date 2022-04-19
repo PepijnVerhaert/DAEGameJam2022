@@ -6,3 +6,5 @@ player
 more waves
 shy
 clouds
+
+platforms
