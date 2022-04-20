@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1909195646521742178, guid: bf3a04726f139ec44966eeab861fd8a2, type: 3}
       propertyPath: _calmDurationStart
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1909195646521742178, guid: bf3a04726f139ec44966eeab861fd8a2, type: 3}
       propertyPath: _stormDurationStart
