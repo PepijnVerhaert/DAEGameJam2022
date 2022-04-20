@@ -135,7 +135,7 @@ MonoBehaviour:
   _movementSpeedYBasic: 1
   _spawnMovementY: 0.5
   _attackMovementY: 4
-  _knockBackForce: 650
+  _knockBackForce: 500
   _stunDuration: 1
 --- !u!61 &4762453789457882869
 BoxCollider2D:
