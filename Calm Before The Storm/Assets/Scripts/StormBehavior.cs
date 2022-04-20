@@ -68,6 +68,10 @@ public class StormBehavior : MonoBehaviour
         if (_boat) _boat.IsCalm = _isCalm;
         if (_ocean) _ocean.ChangeWeather(_isCalm);
         if (_sky) _sky.ChangeWeather(_isCalm);
-        //if (_spawner) _spawner.IsCalm = _isCalm;
+        if (_spawner)
+        {
+            _spawner.IsCalm = _isCalm;
+            _spawner.IncreaseSpawnPercentage();
+        }
     }
 }
