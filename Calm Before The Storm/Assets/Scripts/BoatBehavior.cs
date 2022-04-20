@@ -41,6 +41,13 @@ public class BoatBehavior : MonoBehaviour
     private Vector3 _originalPos;
     private float _driftAngle = 0;
     private float _tiltAngle = 0;
+
+    public bool IsCalm
+    {
+        get { return _isCalm; }
+        set { _isCalm = value; }
+    }    
+
     // Start is called before the first frame update
     void Start()
     {
