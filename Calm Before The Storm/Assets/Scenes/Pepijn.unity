@@ -283,17 +283,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fish
       objectReference: {fileID: 0}
-    - target: {fileID: 4151744020931955869, guid: 41039f132743b65429965f421942c8d8, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 2080880332, guid: a6221659dc7ca1f4fafe0fb83b7303e7, type: 3}
-    - target: {fileID: 4151744020931955869, guid: 41039f132743b65429965f421942c8d8, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7685984314690032206, guid: 41039f132743b65429965f421942c8d8, type: 3}
       propertyPath: _direction
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8953764774105757006, guid: 41039f132743b65429965f421942c8d8, type: 3}
       propertyPath: m_RootOrder
@@ -301,11 +293,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8953764774105757006, guid: 41039f132743b65429965f421942c8d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.34
+      value: 7.1
       objectReference: {fileID: 0}
     - target: {fileID: 8953764774105757006, guid: 41039f132743b65429965f421942c8d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.07
+      value: -4.09
       objectReference: {fileID: 0}
     - target: {fileID: 8953764774105757006, guid: 41039f132743b65429965f421942c8d8, type: 3}
       propertyPath: m_LocalPosition.z
