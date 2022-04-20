@@ -16,18 +16,11 @@ public class KrakenBehavior : MonoBehaviour
     [SerializeField] private float _knockBackForce = 200.0f;
     [SerializeField] private float _stunDuration = 1.0f;
 
-    void Start()
-    {
-    }
-
     void Update()
     {
         UpdateMovement();
 
-        //Camera.
-        //delete if under screen
-        //Debug.Log(Screen.height);
-        if (transform.position.y < -Screen.height)
+        if (transform.position.y < -10f)
         {
             Destroy(gameObject);
         }

@@ -11,11 +11,17 @@ public class FishBehavior : MonoBehaviour
     [SerializeField] private float _stunDuration = 0.5f;
     [SerializeField] private float _xMoveForce = 10.0f;
     [SerializeField] private int _direction = 1;
+    [SerializeField] private Vector2 _JumpForceBounds = new Vector2(400, 700);
 
     public float JumpForce
     {
         get { return _jumpForce; }
         set { _jumpForce = value; }
+    }
+
+    public Vector2 JumpForceBounds
+    {
+        get { return _JumpForceBounds; }
     }
 
     public void SetDirection(int direction)

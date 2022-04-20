@@ -10,23 +10,30 @@ public class SeagullBehavior : MonoBehaviour
     private int _moveDirection;
 
     private Collider2D[] _colliders = new Collider2D[4];
-    private StormBehavior _stormBehavior;
+
+    public bool IsMovingLeft
+    {
+        set 
+        { 
+            _isMovingLeft = value;
+
+            if (_isMovingLeft)
+                _moveDirection = -1;
+            else
+                _moveDirection = 1;
+        }
+    }
 
     private void Awake()
     {
         if (_isMovingLeft)
         {
-            _moveDirection = 1;
+            _moveDirection = -1;
         }
         else
         {
-            _moveDirection = -1;
+            _moveDirection = 1;
         }
-    }
-
-    private void Start()
-    {
-        _stormBehavior = FindObjectOfType<StormBehavior>();
     }
 
     private void Update()
@@ -34,15 +41,15 @@ public class SeagullBehavior : MonoBehaviour
         float horizontal = _moveDirection * _movementSpeed * Time.deltaTime;
         Vector2 newPos = new Vector2(transform.position.x + horizontal, transform.position.y);
         transform.position = newPos;
+
+        if (transform.position.x < -20f || transform.position.x > 20f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_stormBehavior.IsCalm)
-        {
-            return;
-        }
-
         if (collision.tag == "Player")
         {
             // Check if player has already been hit
