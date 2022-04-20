@@ -50,12 +50,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d628ea415283daa47ae93fc9e4fd6f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpForce: 400
   _negativeYCollisionThreshHold: 0.6
   _playerLength: 0.65
   _maxSlopeAngle: 30
   _rayDistanceDown: 0.2
   _rayDistanceIsGrounded: 0.1
+  _maxVelocity: {x: 4, y: 10}
+  _movementSpeed: 10
+  _movementSpeedInAir: 8
+  _changeDirDelay: 0
+  _jumpForce: 400
 --- !u!50 &1678796357055170475
 Rigidbody2D:
   serializedVersion: 4
@@ -147,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd19718e9b0fd8249a88b3b2ea62cada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 1500
 --- !u!1 &96653688661040105
 GameObject:
   m_ObjectHideFlags: 0
