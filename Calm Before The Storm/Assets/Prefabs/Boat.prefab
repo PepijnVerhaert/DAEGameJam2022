@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa74fa25b95403c439960a7fad48859c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCalm: 0
+  _isCalm: 1
   _calmTiltSpeed: 1
   _calmTiltStrength: 3
   _stormTiltSpeed: 3
