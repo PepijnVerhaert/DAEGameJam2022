@@ -184,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7888171950890452242, guid: 5361ba4dd674f7b488214504d6204a9c, type: 3}
       propertyPath: _offsetSpeed
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7888171950890452242, guid: 5361ba4dd674f7b488214504d6204a9c, type: 3}
       propertyPath: _stormHeight
@@ -504,7 +504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7888171950890452242, guid: 5361ba4dd674f7b488214504d6204a9c, type: 3}
       propertyPath: _offsetSpeed
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7888171950890452242, guid: 5361ba4dd674f7b488214504d6204a9c, type: 3}
       propertyPath: _stormHeight
