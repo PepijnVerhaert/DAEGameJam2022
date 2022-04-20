@@ -35,6 +35,12 @@ public class WaveBehavior : MonoBehaviour
 
     private float _originalY;
 
+    [SerializeField]
+    private float _offsetSpeed;
+    [SerializeField]
+    private float _offsetWidth;
+    private float _currentOffset = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +54,17 @@ public class WaveBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //move waves to the side
+        _currentOffset += _offsetSpeed * Time.deltaTime;
+        if(_currentOffset >= _offsetWidth)
+        {
+            _currentOffset -= _offsetWidth;
+        }
+        else if(_currentOffset <= -_offsetWidth)
+        {
+            _currentOffset += _offsetWidth;
+        }
+
         if (_isCalm)
         {
             //update calm circular movement
@@ -91,7 +108,7 @@ public class WaveBehavior : MonoBehaviour
         //calculate x drifting
         _currentAngle += _currentSpeed * Time.deltaTime;
         Vector3 newPos = Vector3.zero;
-        newPos.x = Mathf.Sin(_currentAngle) * _currentStrength;
+        newPos.x = Mathf.Sin(_currentAngle) * _currentStrength + _currentOffset;
         newPos.y = (Mathf.Cos(_currentAngle) * _currentStrength) + _currentHeight + _originalY;
         newPos.z = transform.position.z;
 
