@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8024101436120283923}
   - component: {fileID: 6461190662341565421}
+  - component: {fileID: 5633910220985423459}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -26,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 835974330630383499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -4.87, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3124856292181573452}
   m_RootOrder: 0
@@ -70,10 +71,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 61c6e24c42631ed4b9ac5997332ae545, type: 3}
+  m_SortingLayerID: 1
+  m_SortingLayer: -1
+  m_SortingOrder: 7
+  m_Sprite: {fileID: -1037184462, guid: da52be3806b8b0f4982506b9225fa5ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,6 +85,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5633910220985423459
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835974330630383499}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8ef289a456080bc47a7fb58ccc1adfaa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8099834853900404415
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,11 +151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d712deeea2b5a459acdf227f90a7b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _toAttackTime: 2
-  _movementSpeedYAttack: 20
-  _movementSpeedYBasic: 1
-  _spawnMovementY: 0.5
-  _attackMovementY: 4
+  _toAttackTime: 3
+  _movementSpeedYAttack: 30
+  _movementSpeedYBasic: 5
+  _spawnMovementY: 0.4
+  _attackMovementY: 10
   _knockBackForce: 500
   _stunDuration: 1
 --- !u!61 &4762453789457882869
