@@ -5,6 +5,7 @@ using UnityEngine;
 public class StormBehavior : MonoBehaviour
 {
     private BoatBehavior _boat = null;
+    private OceanBehavior _ocean = null;
 
     private bool _isCalm = true;
     private float _timerToChange = 0.0f;
@@ -18,6 +19,7 @@ public class StormBehavior : MonoBehaviour
     void Start()
     {
         _boat = FindObjectOfType<BoatBehavior>();
+        _ocean = FindObjectOfType<OceanBehavior>();
         
         _stormDuration = _stormDurationStart;
         _calmDuration = _calmDurationStart;
@@ -55,5 +57,6 @@ public class StormBehavior : MonoBehaviour
     private void OnChange()
     {
         if (_boat) _boat.IsCalm = _isCalm;
+        if (_ocean) _ocean.ChangeWeather(_isCalm);
     }
 }
