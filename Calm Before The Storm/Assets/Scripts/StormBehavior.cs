@@ -6,6 +6,7 @@ public class StormBehavior : MonoBehaviour
 {
     private BoatBehavior _boat = null;
     private OceanBehavior _ocean = null;
+    private SkyBehavior _sky = null;
     private AiSpawnerBehavior _spawner = null;
 
     private bool _isCalm = true;
@@ -26,6 +27,7 @@ public class StormBehavior : MonoBehaviour
     {
         _boat = FindObjectOfType<BoatBehavior>();
         _ocean = FindObjectOfType<OceanBehavior>();
+        _sky = FindObjectOfType<SkyBehavior>();
         _spawner = FindObjectOfType<AiSpawnerBehavior>();
 
         _stormDuration = _stormDurationStart;
@@ -65,6 +67,7 @@ public class StormBehavior : MonoBehaviour
     {
         if (_boat) _boat.IsCalm = _isCalm;
         if (_ocean) _ocean.ChangeWeather(_isCalm);
-        if (_spawner) _spawner.IsCalm = _isCalm;
+        if (_sky) _sky.ChangeWeather(_isCalm);
+        //if (_spawner) _spawner.IsCalm = _isCalm;
     }
 }

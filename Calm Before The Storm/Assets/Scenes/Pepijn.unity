@@ -458,6 +458,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1807671436922831521, guid: dc526924630fa7b47bd487a1c55937ff, type: 3}
+      propertyPath: _enterSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807671436922831521, guid: dc526924630fa7b47bd487a1c55937ff, type: 3}
+      propertyPath: _leaveSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2375556937340643530, guid: dc526924630fa7b47bd487a1c55937ff, type: 3}
+      propertyPath: _enterSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2375556937340643530, guid: dc526924630fa7b47bd487a1c55937ff, type: 3}
+      propertyPath: _leaveSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4536807021421627392, guid: dc526924630fa7b47bd487a1c55937ff, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -501,6 +517,14 @@ PrefabInstance:
     - target: {fileID: 4536807021421627392, guid: dc526924630fa7b47bd487a1c55937ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322722183571775495, guid: dc526924630fa7b47bd487a1c55937ff, type: 3}
+      propertyPath: _enterSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322722183571775495, guid: dc526924630fa7b47bd487a1c55937ff, type: 3}
+      propertyPath: _leaveSpeed
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8004824683437315889, guid: dc526924630fa7b47bd487a1c55937ff, type: 3}
       propertyPath: m_Name

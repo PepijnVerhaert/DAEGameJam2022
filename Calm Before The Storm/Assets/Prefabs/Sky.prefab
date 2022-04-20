@@ -84,7 +84,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 946119009437052815, guid: 0c47c3fc56097d54b9463237af26124e, type: 3}
       propertyPath: _enterSpeed
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 946119009437052815, guid: 0c47c3fc56097d54b9463237af26124e, type: 3}
       propertyPath: _leaveDelay
@@ -92,7 +92,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 946119009437052815, guid: 0c47c3fc56097d54b9463237af26124e, type: 3}
       propertyPath: _leaveSpeed
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 946119009437052815, guid: 0c47c3fc56097d54b9463237af26124e, type: 3}
       propertyPath: _leaveDistance
@@ -210,7 +210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 946119009437052815, guid: 0c47c3fc56097d54b9463237af26124e, type: 3}
       propertyPath: _enterSpeed
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 946119009437052815, guid: 0c47c3fc56097d54b9463237af26124e, type: 3}
       propertyPath: _leaveDelay
@@ -218,7 +218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 946119009437052815, guid: 0c47c3fc56097d54b9463237af26124e, type: 3}
       propertyPath: _leaveSpeed
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 946119009437052815, guid: 0c47c3fc56097d54b9463237af26124e, type: 3}
       propertyPath: _leaveDistance
@@ -336,7 +336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 946119009437052815, guid: 0c47c3fc56097d54b9463237af26124e, type: 3}
       propertyPath: _enterSpeed
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 946119009437052815, guid: 0c47c3fc56097d54b9463237af26124e, type: 3}
       propertyPath: _leaveDelay
@@ -344,7 +344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 946119009437052815, guid: 0c47c3fc56097d54b9463237af26124e, type: 3}
       propertyPath: _leaveSpeed
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 946119009437052815, guid: 0c47c3fc56097d54b9463237af26124e, type: 3}
       propertyPath: _leaveDistance
