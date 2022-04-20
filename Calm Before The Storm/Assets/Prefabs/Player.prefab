@@ -57,8 +57,8 @@ MonoBehaviour:
   _rayDistanceIsGrounded: 0.1
   _maxVelocity: {x: 4, y: 10}
   _movementSpeed: 10
-  _movementSpeedInAir: 3
-  _changeDirDelay: 1
+  _movementSpeedInAir: 8
+  _changeDirDelay: 0
   _jumpForce: 400
 --- !u!50 &1678796357055170475
 Rigidbody2D:
