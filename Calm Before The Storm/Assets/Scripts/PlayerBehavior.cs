@@ -10,11 +10,12 @@ public class PlayerBehavior : MonoBehaviour
     private const string _platformLayer = "Platform";
     private const string _platformIgnore = "PlatformIgnore";
     [SerializeField] private float _jumpForce = 500f;
-    [SerializeField] private float _rayDistanceDown = 0.1f;
     [SerializeField] private float _negativeYCollisionThreshHold = 0.1f;
     [SerializeField] private float _playerLength = 1.0f;
     [SerializeField] private float _maxSlopeAngle = 30f;
 
+    [SerializeField] private float _rayDistanceDown = 1.0f;
+    [SerializeField] private float _rayDistanceIsGrounded = 0.1f;
     private InputAction _moveInput;
     private InputAction _jumpInput;
 
@@ -38,6 +39,7 @@ public class PlayerBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
+        UpdateIsGrounded();
         CheckPlatformCollision();
     }
 
@@ -47,51 +49,60 @@ public class PlayerBehavior : MonoBehaviour
         _movementBehavior.MoveX(moveX);
     }
 
-    private void CheckPlatformCollision()
+    private void UpdateIsGrounded()
     {
         if (!_rigidBody) return;
 
-        //if not negative y velocity return
+        //if moving up return
         if (_rigidBody.velocity.y > _negativeYCollisionThreshHold)
         {
             _isGrounded = false;
-            gameObject.layer = 6;
             return;
         }
 
-        RaycastHit2D hitInfoDown = Physics2D.Raycast(transform.position, -transform.up
-            , _rayDistanceDown, LayerMask.GetMask(_platformLayer));
-        Debug.DrawRay(transform.position, -transform.up, Color.red);
+        RaycastHit2D hitInfoIsGrounded = Physics2D.Raycast(transform.position, -transform.up
+            , _rayDistanceIsGrounded, LayerMask.GetMask(_platformLayer));
 
-        // Slope raycasts
-        Vector3 dir = Quaternion.AngleAxis(_maxSlopeAngle, transform.forward) * -transform.up;
-        RaycastHit2D hitInfoRight = Physics2D.Raycast(transform.position, dir
-            , _rayDistanceDown, LayerMask.GetMask(_platformLayer));
-        Debug.DrawRay(transform.position, dir, Color.blue);
-
-        dir = Quaternion.AngleAxis(-_maxSlopeAngle, transform.forward) * -transform.up;
-        RaycastHit2D hitInfoLeft = Physics2D.Raycast(transform.position, dir
-            , _rayDistanceDown, LayerMask.GetMask(_platformLayer));
-        Debug.DrawRay(transform.position, dir, Color.green);
-
-        if (hitInfoDown.collider || hitInfoLeft.collider || hitInfoRight.collider)
+        if (hitInfoIsGrounded.collider && transform.position.y + _playerLength / 10.0f >  hitInfoIsGrounded.point.y )
         {
-            //if raycast up doesnt collide w platf 
-            Vector2 origin = new Vector2(transform.position.x, transform.position.y + _playerLength / 2.0f);
-            RaycastHit2D hitInfoUp = Physics2D.Raycast(origin, transform.up
-            , _playerLength / 2.0f, LayerMask.GetMask(_platformLayer));
-
-            if (!hitInfoUp.collider)
-            {
-                _isGrounded = true;
-                gameObject.layer = LayerMask.GetMask("Default");
-            }
+            _isGrounded = true;
         }
         else
         {
             _isGrounded = false;
-            gameObject.layer = 6;
         }
+
+        Debug.DrawRay(transform.position, -transform.up * _rayDistanceIsGrounded, Color.yellow);
+    }
+
+    private void CheckPlatformCollision()
+    {
+        if (!_rigidBody) return;
+
+        //if y velocity is bigger than epsilon, set no coll with platforms and return
+        if (_rigidBody.velocity.y > _negativeYCollisionThreshHold)
+        {
+            gameObject.layer = 6;
+            return;
+        }
+        
+        for (int i = 0; i < 3; i++)
+        {
+
+            Vector3 dir = Quaternion.AngleAxis(_maxSlopeAngle  - _maxSlopeAngle * i, transform.forward) * -transform.up;
+            RaycastHit2D hitInfoColission = Physics2D.Raycast(transform.position, dir
+            , _rayDistanceDown, LayerMask.GetMask(_platformLayer));
+
+            Debug.DrawRay(transform.position, dir * _rayDistanceDown, Color.blue);
+
+            if(hitInfoColission.collider && transform.position.y + _playerLength / 10.0f > hitInfoColission.point.y)
+            {
+                gameObject.layer = LayerMask.GetMask("Default");
+                return;
+            }
+        }
+        //gameObject.layer = 6;
+
     }
 
     private void OnJump(InputAction.CallbackContext context)
