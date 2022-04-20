@@ -23,6 +23,14 @@ public class KrakenBehavior : MonoBehaviour
     void Update()
     {
         UpdateMovement();
+
+        //Camera.
+        //delete if under screen
+        //Debug.Log(Screen.height);
+        if (transform.position.y < -Screen.height)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void UpdateMovement()
