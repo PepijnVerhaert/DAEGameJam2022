@@ -48,7 +48,7 @@
                 {
                     "name": "negative",
                     "id": "f3345245-588d-455f-9417-418feea49f38",
-                    "path": "<Gamepad>/dpad/down",
+                    "path": "<Gamepad>/dpad/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
