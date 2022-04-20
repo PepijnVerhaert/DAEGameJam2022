@@ -38,6 +38,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
+  - name: Background
+    uniqueID: 1912095333
+    locked: 0
+  - name: BackWaves
+    uniqueID: 5
+    locked: 0
+  - name: Boat
+    uniqueID: 4
+    locked: 0
+  - name: Enemies
+    uniqueID: 3
+    locked: 0
+  - name: Players
+    uniqueID: 2
+    locked: 0
+  - name: FrontWaves
+    uniqueID: 1
+    locked: 0
+  - name: Foreground
     uniqueID: 0
     locked: 0
