@@ -1,0 +1,74 @@
+{
+    "name": "StartMenuInput",
+    "maps": [
+        {
+            "name": "StartMenu",
+            "id": "366fd8ff-dcff-4466-b38f-5d9d1c7f0ba5",
+            "actions": [
+                {
+                    "name": "StartGame",
+                    "type": "Button",
+                    "id": "8c676090-c9cc-4ed5-ab43-93371f7fa2b6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AddPlayer",
+                    "type": "Button",
+                    "id": "588a498f-f092-4fe2-a887-2828ce9a78ce",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RemovePlayer",
+                    "type": "Button",
+                    "id": "fbc23fef-8424-411b-9268-a1c6925e7e42",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8167b660-9713-4f62-9f16-85eb297ed3b4",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StartGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e7d6f6cc-34df-4d11-b437-e66d257c215b",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "AddPlayer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c6c3dff1-9e80-4605-ad2f-c52edb8442cc",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "RemovePlayer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

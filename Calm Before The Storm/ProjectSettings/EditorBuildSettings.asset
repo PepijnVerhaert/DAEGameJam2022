@@ -8,5 +8,11 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 077d7c10be26d124988a921b90f066fd
+  - enabled: 1
+    path: Assets/Scenes/Jochen.unity
+    guid: 4aa3f7a74d4efda4bb1b7ddcaaefe4e7
   m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: bb666d90a1a39bb429a2dc19fe159508, type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: e3234d4146d7d07419de29611904bc1d, type: 2}

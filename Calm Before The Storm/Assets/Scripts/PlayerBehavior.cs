@@ -109,6 +109,8 @@ public class PlayerBehavior : MonoBehaviour
 
     private void UpdateMovement()
     {
+        if (!_movementBehavior) return;
+
         _stunTimer -= Time.deltaTime;
         if (_stunTimer > 0.0f) return;
 
