@@ -14,8 +14,9 @@ public class AiSpawnerBehavior : MonoBehaviour
     [SerializeField] private float _krakenPercentage = 10f;
 
     [Header("Cycle")]
-    [SerializeField] private int _spawnPercentage = 30;
-    [SerializeField] int _spawnIncreasePerStorm = 5;
+    [SerializeField] private float _spawnPercentage = 30f;
+    [SerializeField] float _spawnIncrease = 1.01f;
+    private float _currentTime = 0f;
 
     [Header("Spawn locations")]
     [SerializeField] float _krakenSpawnHeight = -5f;
@@ -51,6 +52,14 @@ public class AiSpawnerBehavior : MonoBehaviour
             return;
         }
 
+        // Increase spawn time
+        _currentTime += Time.deltaTime;
+        if (_currentTime >= 1f)
+        {
+            _currentTime = 0f;
+            _spawnPercentage *= _spawnIncrease;
+        }
+
         _currentSpawnTime += Time.deltaTime;
         if (_currentSpawnTime >= _spawnTime)
         {
@@ -61,11 +70,6 @@ public class AiSpawnerBehavior : MonoBehaviour
             }
             _currentSpawnTime = 0f;
         }
-    }
-
-    public void IncreaseSpawnPercentage()
-    {
-        _spawnPercentage += _spawnIncreasePerStorm;
     }
 
     private void SpawnEnemy()
