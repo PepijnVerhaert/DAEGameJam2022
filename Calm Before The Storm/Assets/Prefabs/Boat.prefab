@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2374493783906904500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08, y: 3.46, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: -0.6, y: 4.57, z: 0}
+  m_LocalScale: {x: 1.00245, y: 1.00245, z: 1.00245}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5934263390685339333}
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 305dfc4688c0eae4eb4d3aed857f67dd, type: 3}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: 6c6a718e6a0aafb4bb83c4d8c3165fcd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -136,14 +136,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isCalm: 0
-  _calmRotationSpeed: 1.57
-  _stormRotationSpeed: 20
-  _calmMaxAngle: 3.61
-  _stormMaxAngle: 15
-  _calmMinAngle: -2.69
-  _stormMinAngle: -15
+  _calmTiltSpeed: 10
+  _calmTiltStrength: 1
+  _stormTiltSpeed: 10
+  _stormTiltStrength: 1
   _driftSpeed: 1
   _driftStrength: 1
+  _tiltSpeedMaxChange: 10
+  _tiltStrengthMaxChange: 10
+  _driftSpeedMaxChange: 10
+  _driftStrengthMaxChange: 10
 --- !u!1001 &1132491767691709033
 PrefabInstance:
   m_ObjectHideFlags: 0
