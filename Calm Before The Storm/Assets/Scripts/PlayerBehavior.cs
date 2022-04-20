@@ -10,6 +10,10 @@ public class PlayerBehavior : MonoBehaviour
     private const string _platformLayer = "Platform";
     private const string _platformIgnore = "PlatformIgnore";
 
+    [Header("Death")]
+    [SerializeField] private float _yPositionToTransform = 3.3f;
+    [SerializeField] private float _movementSpeedUp = 5f;
+
     [Header("Rays")]
     [SerializeField] private float _negativeYCollisionThreshHold = 0.1f;
     [SerializeField] private float _playerLength = 1.0f;
@@ -211,6 +215,29 @@ public class PlayerBehavior : MonoBehaviour
         }
         //gameObject.layer = 6;
 
+    }
+
+    public void OnDeath()
+    {
+        _stunTimer = 10f;
+        StartCoroutine(MoveUp());
+    }
+
+    IEnumerator MoveUp()
+    {
+        while (transform.position.y < _yPositionToTransform)
+        {
+            Destroy(_rigidBody);
+            float vertical = _movementSpeedUp * Time.deltaTime;
+            Vector2 newPos = new Vector2(transform.position.x, transform.position.y + vertical);
+            transform.position = newPos;
+            yield return null;
+        }
+
+        _stunTimer = 0f;
+
+        // transform to seagull
+        enabled = false;
     }
 
     private void OnJump(InputAction.CallbackContext context)
