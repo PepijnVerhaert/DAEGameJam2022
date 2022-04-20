@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _seagullPrefab: {fileID: 7094234076496703707, guid: 14a01f276bcf19147951901f27628070, type: 3}
-  _fishPrefab: {fileID: 1049077426281411, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
+  _fishPrefab: {fileID: 1600562545887716404, guid: 41039f132743b65429965f421942c8d8, type: 3}
   _krakenPrefab: {fileID: 8099834853900404415, guid: 0a0b011162a0f364fa537c45f09a854b, type: 3}
   _seagullPercentage: 45
   _fishPercentage: 45
