@@ -59,7 +59,7 @@ public class PlayerBehavior : MonoBehaviour
         _collider = GetComponent<Collider2D>();
 
         PlayerInput characterInput = GetComponent<PlayerInput>();
-        _moveInput = characterInput.actions["Movement"];
+        _moveInput = characterInput.actions["MovementRenee"];
 
         _jumpInput = characterInput.actions["Jump"];
         _jumpInput.performed += OnJump;
@@ -227,9 +227,11 @@ public class PlayerBehavior : MonoBehaviour
 
     IEnumerator MoveUp()
     {
+        _rigidBody.velocity = Vector2.zero;
+        _rigidBody.gravityScale = 0f;
+        _collider.enabled = false;
         while (transform.position.y < _yPositionToTransform)
         {
-            Destroy(_rigidBody);
             float vertical = _movementSpeedUp * Time.deltaTime;
             Vector2 newPos = new Vector2(transform.position.x, transform.position.y + vertical);
             transform.position = newPos;
