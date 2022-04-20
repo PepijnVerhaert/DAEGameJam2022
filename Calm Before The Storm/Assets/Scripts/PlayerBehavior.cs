@@ -9,19 +9,32 @@ public class PlayerBehavior : MonoBehaviour
     private Collider2D _collider = null;
     private const string _platformLayer = "Platform";
     private const string _platformIgnore = "PlatformIgnore";
-    [SerializeField] private float _jumpForce = 500f;
+
+    [Header("Rays")]
     [SerializeField] private float _negativeYCollisionThreshHold = 0.1f;
     [SerializeField] private float _playerLength = 1.0f;
     [SerializeField] private float _maxSlopeAngle = 30f;
-
     [SerializeField] private float _rayDistanceDown = 1.0f;
     [SerializeField] private float _rayDistanceIsGrounded = 0.1f;
+
+    // INPUT
     private InputAction _moveInput;
     private InputAction _jumpInput;
 
-    private MovementBehavior _movementBehavior;
+    // MOVEMENT
+    [Header("Movement")]
+    [SerializeField] private Vector2 _maxVelocity = new Vector2(5f, 10f);
+    [SerializeField] private float _movementSpeed = 10f;
+    [SerializeField] private float _movementSpeedInAir = 3f;
+    [SerializeField] private float _changeDirDelay = 2f;
+    private float _changeDirCurrent = 0f;
+    [SerializeField] private float _jumpForce = 500f;
 
+    private MovementBehavior _movementBehavior;
     private bool _isGrounded = false;
+
+
+    StormBehavior _stormBehavior;
 
     void Start()
     {
@@ -35,6 +48,8 @@ public class PlayerBehavior : MonoBehaviour
 
         _jumpInput = characterInput.actions["Jump"];
         _jumpInput.performed += OnJump;
+
+        _stormBehavior = FindObjectOfType<StormBehavior>();
     }
 
     void FixedUpdate()
@@ -43,10 +58,70 @@ public class PlayerBehavior : MonoBehaviour
         CheckPlatformCollision();
     }
 
+    private bool DelayDirection()
+    {
+        _changeDirCurrent += Time.deltaTime;
+        if (_changeDirCurrent < _changeDirDelay)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private void ResetDelay()
+    {
+        _changeDirCurrent = 0f;
+    }
+
     private void Update()
     {
         float moveX = _moveInput.ReadValue<float>();
-        _movementBehavior.MoveX(moveX);
+
+        if(_stormBehavior.IsCalm)
+        {
+            if (_isGrounded)
+            {
+                // reset velocity for snapping turns
+                if (_rigidBody.velocity.x > 0f && moveX <= 0f)
+                {
+                    _rigidBody.velocity = new Vector2(0f, _rigidBody.velocity.y);
+                }
+                if (_rigidBody.velocity.x < 0f && moveX >= 0f)
+                {
+                    _rigidBody.velocity = new Vector2(0f, _rigidBody.velocity.y);
+                }
+            }
+        }
+        else
+        {
+            if (_rigidBody.velocity.x > 0f && moveX <= 0f)
+            {
+                if (DelayDirection())
+                {
+                    return;
+                }
+            }
+            else if (_rigidBody.velocity.x < 0f && moveX >= 0f)
+            {
+                if (DelayDirection())
+                {
+                    return;
+                }
+            }
+        }
+
+        float speed;
+        if (_isGrounded)
+        {
+            speed = _movementSpeed;
+        }
+        else
+        {
+            speed = _movementSpeedInAir;
+        }
+
+        _movementBehavior.MoveX(moveX, _maxVelocity, speed);
+        ResetDelay();
     }
 
     private void UpdateIsGrounded()
@@ -63,7 +138,7 @@ public class PlayerBehavior : MonoBehaviour
         RaycastHit2D hitInfoIsGrounded = Physics2D.Raycast(transform.position, -transform.up
             , _rayDistanceIsGrounded, LayerMask.GetMask(_platformLayer));
 
-        if (hitInfoIsGrounded.collider && transform.position.y + _playerLength / 10.0f >  hitInfoIsGrounded.point.y )
+        if (hitInfoIsGrounded.collider && transform.position.y + _playerLength / 10.0f > hitInfoIsGrounded.point.y)
         {
             _isGrounded = true;
         }
@@ -85,17 +160,17 @@ public class PlayerBehavior : MonoBehaviour
             gameObject.layer = 6;
             return;
         }
-        
+
         for (int i = 0; i < 3; i++)
         {
 
-            Vector3 dir = Quaternion.AngleAxis(_maxSlopeAngle  - _maxSlopeAngle * i, transform.forward) * -transform.up;
+            Vector3 dir = Quaternion.AngleAxis(_maxSlopeAngle - _maxSlopeAngle * i, transform.forward) * -transform.up;
             RaycastHit2D hitInfoColission = Physics2D.Raycast(transform.position, dir
             , _rayDistanceDown, LayerMask.GetMask(_platformLayer));
 
             Debug.DrawRay(transform.position, dir * _rayDistanceDown, Color.blue);
 
-            if(hitInfoColission.collider && transform.position.y + _playerLength / 10.0f > hitInfoColission.point.y)
+            if (hitInfoColission.collider && transform.position.y + _playerLength / 10.0f > hitInfoColission.point.y)
             {
                 gameObject.layer = LayerMask.GetMask("Default");
                 return;

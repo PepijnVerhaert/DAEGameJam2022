@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class MovementBehavior : MonoBehaviour
 {
-    [SerializeField] private float _movementSpeed = 2f;
-   
     private Rigidbody2D _rigidBody;
 
     public void Jump(float force)
@@ -16,13 +14,19 @@ public class MovementBehavior : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    public void Move(Vector2 moveDirection)
+    public void Move(Vector2 moveDirection, Vector2 maxVel, float movementSpeed)
     {
-        _rigidBody.velocity = moveDirection * _movementSpeed * Time.deltaTime;
+        _rigidBody.AddForce(moveDirection * movementSpeed);
+        float xVelocity = Mathf.Clamp(_rigidBody.velocity.x, -maxVel.x, maxVel.x);
+        float yVelocity = Mathf.Clamp(_rigidBody.velocity.y, -maxVel.y, maxVel.y);
+        _rigidBody.velocity = new Vector2(xVelocity, yVelocity);
     }
 
-    public void MoveX(float valueX)
+    public void MoveX(float valueX, Vector2 maxVel, float movementSpeed)
     {
-        _rigidBody.velocity = new Vector2(valueX * _movementSpeed * Time.deltaTime, _rigidBody.velocity.y);
+        _rigidBody.AddForce(new Vector2(valueX * movementSpeed, 0f));
+        float xVelocity = Mathf.Clamp(_rigidBody.velocity.x, -maxVel.x, maxVel.x);
+        float yVelocity = Mathf.Clamp(_rigidBody.velocity.y, -maxVel.y, maxVel.y);
+        _rigidBody.velocity = new Vector2(xVelocity, yVelocity);
     }
 }

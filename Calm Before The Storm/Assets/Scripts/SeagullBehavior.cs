@@ -10,6 +10,7 @@ public class SeagullBehavior : MonoBehaviour
     private int _moveDirection;
 
     private Collider2D[] _colliders = new Collider2D[4];
+    private StormBehavior _stormBehavior;
 
     private void Awake()
     {
@@ -23,29 +24,51 @@ public class SeagullBehavior : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        _stormBehavior = FindObjectOfType<StormBehavior>();
+    }
+
     private void Update()
     {
         float horizontal = _moveDirection * _movementSpeed * Time.deltaTime;
         Vector2 newPos = new Vector2(transform.position.x + horizontal, transform.position.y);
         transform.position = newPos;
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (_stormBehavior.IsCalm)
+        {
+            return;
+        }
+
         if (collision.tag == "Player")
         {
-            foreach(var collider in _colliders)
+            // Check if player has already been hit
+            foreach (var collider in _colliders)
             {
-                if(collider == collision)
+                if (collider == collision)
+                {
+                    return;
+                }
+            }
+
+            // Player has not been hit so hit player
+            for (int i = 0; i < _colliders.Length; i++)
+            {
+                if (_colliders[i] == null)
+                {
+                    Vector2 knockback = new Vector2(_knockbackForce * _moveDirection, _knockbackForce);
+                    collision.gameObject.GetComponent<Rigidbody2D>().AddForce(knockback * Time.deltaTime);
+                    _colliders[i] = collision;
+                    return;
+                }
+                else if(_colliders[i] == collision)
                 {
                     continue;
                 }
-
-                //Vector2 knockback = new Vector2(_knockbackForce, _knockbackForce);
-                //collider.GetComponent<Rigidbody2D>().AddForce(knockback * _moveDirection * Time.deltaTime);
             }
-
         }
     }
 }

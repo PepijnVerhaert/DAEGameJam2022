@@ -16,6 +16,11 @@ public class StormBehavior : MonoBehaviour
     [SerializeField] private float _calmDurationStart = 30.0f;
     [SerializeField] private float _durationChange = 5.0f;
 
+    public bool IsCalm
+    {
+        get { return _isCalm; }
+    }
+
     void Start()
     {
         _boat = FindObjectOfType<BoatBehavior>();
