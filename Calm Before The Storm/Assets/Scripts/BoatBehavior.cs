@@ -54,7 +54,6 @@ public class BoatBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float angle = 0;
         if (_isCalm)
         {
             //update calm tilt
@@ -111,7 +110,7 @@ public class BoatBehavior : MonoBehaviour
         }
         //calculate z tilting
         _tiltAngle += _currentTiltSpeed * Time.deltaTime;
-        angle = Mathf.Sin(_tiltAngle) * _currentTiltStrength;
+        float angle = Mathf.Sin(_tiltAngle) * _currentTiltStrength;
 
         //calculate x drifting
         _driftAngle += _currentDriftSpeed * Time.deltaTime;
