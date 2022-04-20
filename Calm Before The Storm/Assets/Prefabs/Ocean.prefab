@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7888171950890452242, guid: 5361ba4dd674f7b488214504d6204a9c, type: 3}
       propertyPath: _calmSpeed
-      value: 2.2
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7888171950890452242, guid: 5361ba4dd674f7b488214504d6204a9c, type: 3}
       propertyPath: _stormSpeed
@@ -184,11 +184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7888171950890452242, guid: 5361ba4dd674f7b488214504d6204a9c, type: 3}
       propertyPath: _offsetSpeed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7888171950890452242, guid: 5361ba4dd674f7b488214504d6204a9c, type: 3}
       propertyPath: _stormHeight
-      value: 1.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7888171950890452242, guid: 5361ba4dd674f7b488214504d6204a9c, type: 3}
       propertyPath: _stormStrength
@@ -500,7 +500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7888171950890452242, guid: 5361ba4dd674f7b488214504d6204a9c, type: 3}
       propertyPath: _stormSpeed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7888171950890452242, guid: 5361ba4dd674f7b488214504d6204a9c, type: 3}
       propertyPath: _offsetSpeed

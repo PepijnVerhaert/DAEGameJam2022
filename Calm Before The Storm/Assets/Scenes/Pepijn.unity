@@ -481,6 +481,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: AiSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
+      propertyPath: _fishPercentage
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
+      propertyPath: _krakenSpawnHeight
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
+      propertyPath: _seagullPercentage
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 8705231370574395911, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
       propertyPath: m_RootOrder
       value: 7
