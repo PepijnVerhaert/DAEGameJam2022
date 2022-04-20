@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveBehavior : MonoBehaviour
 {
     [SerializeField]
-    private bool _isCalm = true;
+    public bool _isCalm = true;
 
     [SerializeField]
     private float _stormHeight;
