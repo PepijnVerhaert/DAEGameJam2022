@@ -38,7 +38,14 @@ public class PlayerBehavior : MonoBehaviour
     private bool _isGrounded = false;
     private bool _isCalmPreviousFrame = false;
 
+    private float _stunTimer = 0.0f;
+
     StormBehavior _stormBehavior;
+
+    public void Stun(float time)
+    {
+        _stunTimer = time;
+    }
 
     void Start()
     {
@@ -93,9 +100,17 @@ public class PlayerBehavior : MonoBehaviour
             _calmDelayCurrent = 0f;
         }
 
+        UpdateMovement();
+    }
+
+    private void UpdateMovement()
+    {
+        _stunTimer -= Time.deltaTime;
+        if (_stunTimer > 0.0f) return;
+
         float moveX = _moveInput.ReadValue<float>();
 
-        if(_stormBehavior.IsCalm && _isCalmPreviousFrame)
+        if (_stormBehavior.IsCalm && _isCalmPreviousFrame)
         {
             if (_isGrounded)
             {
