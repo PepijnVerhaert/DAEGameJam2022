@@ -526,14 +526,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4396371281408572300, guid: 14a01f276bcf19147951901f27628070, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7094234076496703706, guid: 14a01f276bcf19147951901f27628070, type: 3}
-      propertyPath: _knockbackForce
-      value: 300
-      objectReference: {fileID: 0}
     - target: {fileID: 7094234076496703707, guid: 14a01f276bcf19147951901f27628070, type: 3}
       propertyPath: m_Name
       value: Seagull

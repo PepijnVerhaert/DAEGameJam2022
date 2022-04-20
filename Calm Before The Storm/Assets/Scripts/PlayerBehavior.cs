@@ -30,9 +30,13 @@ public class PlayerBehavior : MonoBehaviour
     private float _changeDirCurrent = 0f;
     [SerializeField] private float _jumpForce = 500f;
 
+    [Header("Storm")]
+    [SerializeField] private float _calmDelay = 3f;
+    private float _calmDelayCurrent = 0f;
+
     private MovementBehavior _movementBehavior;
     private bool _isGrounded = false;
-
+    private bool _isCalmPreviousFrame = false;
 
     StormBehavior _stormBehavior;
 
@@ -75,9 +79,23 @@ public class PlayerBehavior : MonoBehaviour
 
     private void Update()
     {
+        if (_stormBehavior.IsCalm)
+        {
+            _calmDelayCurrent += Time.deltaTime;
+            if (_calmDelayCurrent >= _calmDelay && !_isCalmPreviousFrame)
+            {
+                _isCalmPreviousFrame = true;
+            }
+        }
+        else
+        {
+            _isCalmPreviousFrame = false;
+            _calmDelayCurrent = 0f;
+        }
+
         float moveX = _moveInput.ReadValue<float>();
 
-        if(_stormBehavior.IsCalm)
+        if(_stormBehavior.IsCalm && _isCalmPreviousFrame)
         {
             if (_isGrounded)
             {
