@@ -45,6 +45,12 @@ public class AiSpawnerBehavior : MonoBehaviour
 
     private void Update()
     {
+        if (_isCalm)
+        {
+            _currentSpawnTime = 0f;
+            return;
+        }
+
         _currentSpawnTime += Time.deltaTime;
         if (_currentSpawnTime >= _spawnTime)
         {
