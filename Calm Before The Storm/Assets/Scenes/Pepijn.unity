@@ -131,8 +131,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1909195646521742178, guid: bf3a04726f139ec44966eeab861fd8a2, type: 3}
+      propertyPath: _durationChange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1909195646521742178, guid: bf3a04726f139ec44966eeab861fd8a2, type: 3}
       propertyPath: _calmDurationStart
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1909195646521742178, guid: bf3a04726f139ec44966eeab861fd8a2, type: 3}
       propertyPath: _stormDurationStart
@@ -411,6 +415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ocean
       objectReference: {fileID: 0}
+    - target: {fileID: 8684004959183974759, guid: a33b7237b4fc51d418a1e76dcf1bf9d9, type: 3}
+      propertyPath: _stormHeight
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a33b7237b4fc51d418a1e76dcf1bf9d9, type: 3}
 --- !u!1001 &2160149741376490449
@@ -467,6 +475,14 @@ PrefabInstance:
     - target: {fileID: 1379751759622584430, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023681958602532972, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023681958602532972, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
