@@ -5,11 +5,13 @@ using UnityEngine;
 public class SkyBehavior : MonoBehaviour
 {
     private CloudBehavior[] _cloudBehaviors = new CloudBehavior[3];
+    private LoomingCloudBehavior _loomingCloud = null;
 
     // Start is called before the first frame update
     void Start()
     {
         _cloudBehaviors = FindObjectsOfType<CloudBehavior>();
+        _loomingCloud = FindObjectOfType<LoomingCloudBehavior>();
     }
 
     // Update is called once per frame
@@ -24,5 +26,6 @@ public class SkyBehavior : MonoBehaviour
         {
             _cloudBehaviors[i].ChangeWeather(isCalm);
         }
+        _loomingCloud.ChangeWeather(isCalm);
     }
 }
