@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1909195646521742178, guid: bf3a04726f139ec44966eeab861fd8a2, type: 3}
       propertyPath: _calmDurationStart
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1909195646521742178, guid: bf3a04726f139ec44966eeab861fd8a2, type: 3}
       propertyPath: _stormDurationStart
@@ -499,7 +499,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
       propertyPath: _fishPercentage
-      value: 45
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
+      propertyPath: _krakenPercentage
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
       propertyPath: _krakenSpawnHeight

@@ -49,6 +49,7 @@ MonoBehaviour:
   _movementSpeed: 5
   _isMovingLeft: 0
   _knockbackForce: 300
+  _Animator: {fileID: 175927113019331377}
 --- !u!58 &860942165156415128
 CircleCollider2D:
   m_ObjectHideFlags: 0

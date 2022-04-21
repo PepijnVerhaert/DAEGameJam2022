@@ -34,10 +34,20 @@ public class SeagullBehavior : MonoBehaviour
         {
             _moveDirection = 1;
         }
+
     }
 
     private void Update()
     {
+        if(_isMovingLeft)
+        {
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+        }
+
         float horizontal = _moveDirection * _movementSpeed * Time.deltaTime;
         Vector2 newPos = new Vector2(transform.position.x + horizontal, transform.position.y);
         transform.position = newPos;
