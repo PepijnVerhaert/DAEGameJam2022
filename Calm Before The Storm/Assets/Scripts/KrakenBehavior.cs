@@ -58,17 +58,20 @@ public class KrakenBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        PlayerBehavior player = other.gameObject.GetComponent<PlayerBehavior>();
-        if(player)
+        if (other.tag == "Player")
         {
-            player.Stun(_stunDuration);
-            Rigidbody2D playerRB = player.GetComponent<Rigidbody2D>();
-            if(playerRB)
+            PlayerBehavior player = other.gameObject.GetComponent<PlayerBehavior>();
+            if (player)
             {
-                bool playerLeft = player.transform.position.x < transform.position.x;
-                Vector2 dir = new Vector2(1.0f, 1.5f);
-                if (playerLeft) dir.x = -1.0f;
-                playerRB.AddForce(dir.normalized * _knockBackForce);
+                player.Stun(_stunDuration);
+                Rigidbody2D playerRB = player.GetComponent<Rigidbody2D>();
+                if (playerRB)
+                {
+                    bool playerLeft = player.transform.position.x < transform.position.x;
+                    Vector2 dir = new Vector2(1.0f, 1.5f);
+                    if (playerLeft) dir.x = -1.0f;
+                    playerRB.AddForce(dir.normalized * _knockBackForce);
+                }
             }
         }
     }
