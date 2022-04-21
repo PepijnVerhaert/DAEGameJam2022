@@ -21,19 +21,34 @@ public class CloudBehavior : MonoBehaviour
     private float _leaveDistance;
 
     private float _weatherChangeTimeAcc = 0;
+
+    [SerializeField]
+    private float _swingAngle = 0f;
+    [SerializeField]
+    private float _swingStrength = 0f;
+    [SerializeField]
+    private float _swingSpeed = 0f;
+
+    private float _originalX;
+    private float _moveX = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        _originalX = transform.position.x;
         if (_isCalm)
         {
             if (_isLeaveDirectionLeft)
             {
                 transform.Translate(-_leaveDistance, 0, 0);
+                _moveX -= _leaveDistance;
             }
             else
             {
                 transform.Translate(_leaveDistance, 0, 0);
+                _moveX += _leaveDistance;
             }
+
         }
     }
 
@@ -42,8 +57,11 @@ public class CloudBehavior : MonoBehaviour
     {
         _weatherChangeTimeAcc += Time.deltaTime;
 
+        _swingAngle += _swingSpeed * Time.deltaTime;
+        float swingX = Mathf.Sin(_swingAngle) * _swingStrength;
+
         Vector3 pos;
-        pos.x = 0;
+        pos.x = _originalX;
         pos.y = transform.position.y;
         pos.z = transform.position.z;
 
@@ -55,21 +73,25 @@ public class CloudBehavior : MonoBehaviour
             }
             if (_isLeaveDirectionLeft)
             {
-                transform.Translate(-_leaveSpeed * Time.deltaTime, 0, 0);
-                if (transform.position.x <= -_leaveDistance)
+                _moveX -= _leaveSpeed * Time.deltaTime;
+                if (_moveX <= -_leaveDistance)
                 {
-                    pos.x = -_leaveDistance;
-                    transform.SetPositionAndRotation(pos, transform.rotation);
+                    _moveX = -_leaveDistance;
                 }
+                pos.x += _moveX;
+                pos.x += swingX;
+                transform.SetPositionAndRotation(pos, transform.rotation);
             }
             else
             {
-                transform.Translate(_leaveSpeed * Time.deltaTime, 0, 0);
-                if(transform.position.x >= _leaveDistance)
+                _moveX += _leaveSpeed * Time.deltaTime;
+                if (_moveX >= _leaveDistance)
                 {
-                    pos.x = _leaveDistance;
-                    transform.SetPositionAndRotation(pos, transform.rotation);
+                    _moveX = _leaveDistance;
                 }
+                pos.x += _moveX;
+                pos.x += swingX;
+                transform.SetPositionAndRotation(pos, transform.rotation);
             }
         }
         else
@@ -80,19 +102,25 @@ public class CloudBehavior : MonoBehaviour
             }
             if (_isLeaveDirectionLeft)
             {
-                transform.Translate(_enterSpeed * Time.deltaTime, 0, 0);
-                if (transform.position.x >= 0f)
+                _moveX += _enterSpeed * Time.deltaTime;
+                if (_moveX >= 0f)
                 {
-                    transform.SetPositionAndRotation(pos, transform.rotation);
+                    _moveX = 0f;
                 }
+                pos.x += _moveX;
+                pos.x += swingX;
+                transform.SetPositionAndRotation(pos, transform.rotation);
             }
             else
             {
-                transform.Translate(-_enterSpeed * Time.deltaTime, 0, 0);
-                if (transform.position.x <= 0)
+                _moveX -= _enterSpeed * Time.deltaTime;
+                if (_moveX <= 0)
                 {
-                    transform.SetPositionAndRotation(pos, transform.rotation);
+                    _moveX = 0f;
                 }
+                pos.x += _moveX;
+                pos.x += swingX;
+                transform.SetPositionAndRotation(pos, transform.rotation);
             }
         }
     }

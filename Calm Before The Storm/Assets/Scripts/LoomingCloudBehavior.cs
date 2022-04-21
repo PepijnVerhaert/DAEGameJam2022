@@ -19,6 +19,16 @@ public class LoomingCloudBehavior : MonoBehaviour
     private float _leaveDistance;
 
     private float _weatherChangeTimeAcc = 0;
+
+    [SerializeField]
+    private float _swingAngle = 0f;
+    [SerializeField]
+    private float _swingStrength = 0f;
+    [SerializeField]
+    private float _swingSpeed = 0f;
+
+    private float _originalX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +36,11 @@ public class LoomingCloudBehavior : MonoBehaviour
         {
             transform.Translate(0, _leaveDistance, 0);
         }
+<<<<<<< Updated upstream
         _weatherChangeTimeAcc = 0f;
+=======
+        _originalX = transform.position.x;
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
@@ -34,8 +48,11 @@ public class LoomingCloudBehavior : MonoBehaviour
     {
         _weatherChangeTimeAcc += Time.deltaTime;
 
+        _swingAngle += _swingSpeed * Time.deltaTime;
+        float swingX = Mathf.Sin(_swingAngle) * _swingStrength;
+
         Vector3 pos;
-        pos.x = transform.position.x;
+        pos.x = _originalX;
         pos.y = 0;
         pos.z = transform.position.z;
 
@@ -51,6 +68,8 @@ public class LoomingCloudBehavior : MonoBehaviour
                 pos.y = _leaveDistance;
                 transform.SetPositionAndRotation(pos, transform.rotation);
             }
+            pos.x += swingX;
+            transform.SetPositionAndRotation(new Vector3(pos.x, transform.position.y, transform.position.z), transform.rotation);
         }
         else
         {
@@ -61,8 +80,11 @@ public class LoomingCloudBehavior : MonoBehaviour
             transform.Translate(0, -_enterSpeed * Time.deltaTime, 0);
             if (transform.position.y <= 0)
             {
+                pos.y = 0f;
                 transform.SetPositionAndRotation(pos, transform.rotation);
             }
+            pos.x += swingX;
+            transform.SetPositionAndRotation(new Vector3(pos.x, transform.position.y, transform.position.z), transform.rotation);
         }
     }
 
