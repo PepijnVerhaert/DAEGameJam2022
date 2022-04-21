@@ -93,8 +93,7 @@ public class PlayerManager : MonoBehaviour
                 // Mark gamepad x as being for player x.
                 string name = "Player" + i;
                 InputSystem.SetDeviceUsage(Gamepad.all[i], name);
-                var gamepad = InputSystem.GetDevice<Gamepad>(new InternedString(name));
-                playerComp.Controller = gamepad;
+                playerComp.GamepadName = name;
             }
         }
     }

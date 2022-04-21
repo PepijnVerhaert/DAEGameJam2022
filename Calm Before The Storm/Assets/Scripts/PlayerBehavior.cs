@@ -57,7 +57,7 @@ public class PlayerBehavior : MonoBehaviour
 
     private StormBehavior _stormBehavior;
 
-    private Gamepad _gamePad;
+    private string _gamePadName;
 
     //fishing
     private bool _fishingInput = false;
@@ -77,9 +77,9 @@ public class PlayerBehavior : MonoBehaviour
         get { return _isDead; }
     }
 
-    public Gamepad Controller
+    public string GamepadName
     {
-        set { _gamePad = value; }
+        set { _gamePadName = value; }
     }
 
     private void Awake()
@@ -366,11 +366,12 @@ public class PlayerBehavior : MonoBehaviour
 
     public IEnumerator ControllerVibrate(float lewF, float highF, float time)
     {
-        _gamePad.SetMotorSpeeds(lewF, highF);
+        var gamepad = InputSystem.GetDevice<Gamepad>(new InternedString(_gamePadName));
+        gamepad.SetMotorSpeeds(lewF, highF);
 
         yield return new WaitForSeconds(time);
 
-        _gamePad.SetMotorSpeeds(0f, 0f);
+        gamepad.SetMotorSpeeds(0f, 0f);
     }
 
     public void OnDeath()
