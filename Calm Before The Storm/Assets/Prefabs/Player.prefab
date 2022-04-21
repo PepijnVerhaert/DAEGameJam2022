@@ -55,9 +55,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 6369533595965029546}
-  _waterSplash: {fileID: 3810545087437848158}
-  _hit: {fileID: 1711234196730514674}
-  _fish: {fileID: 8060441759136000443}
+  _onDeathSound: {fileID: 3810545087437848158}
+  _onHitSound: {fileID: 1711234196730514674}
+  _onFishAFishSound: {fileID: 8060441759136000443}
   _yPositionToTransform: 3.3
   _movementSpeedUp: 5
   _negativeYCollisionThreshHold: 0.6
@@ -73,8 +73,9 @@ MonoBehaviour:
   _calmDelay: 3
   _fishingCooldownTime: 2
   _fishingWaitTime: 1
-  _fishingSpeedCalm: 1
-  _fishingSpeedStorm: 0.5
+  _fishingSpeed: 1
+  _fishingPointsCalm: 1
+  _fishingPointsStorm: 2
 --- !u!50 &1678796357055170475
 Rigidbody2D:
   serializedVersion: 4
@@ -603,7 +604,7 @@ GameObject:
   - component: {fileID: 620083273868464222}
   - component: {fileID: 2437742519379938471}
   m_Layer: 0
-  m_Name: img_YellowIndicator
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
