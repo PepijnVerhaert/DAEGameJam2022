@@ -9,6 +9,8 @@ public class StormBehavior : MonoBehaviour
     private SkyBehavior _sky = null;
     private AiSpawnerBehavior _spawner = null;
     private SoundManager _soundManager = null;
+    [SerializeField] private ScreenShake _cameraScreenShake = null;
+
 
     private bool _isCalm = true;
     private float _timerToChange = 0.0f;
@@ -72,5 +74,9 @@ public class StormBehavior : MonoBehaviour
         if (_sky) _sky.ChangeWeather(_isCalm);
         if (_spawner) _spawner.IsCalm = _isCalm;
         if (_soundManager) _soundManager.ChangeWeather(_isCalm);
+        if(!_isCalm && _cameraScreenShake)
+        {
+            _cameraScreenShake.CameraShake();
+        }
     }
 }
