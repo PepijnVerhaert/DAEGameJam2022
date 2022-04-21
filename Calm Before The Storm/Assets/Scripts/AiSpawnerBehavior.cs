@@ -15,7 +15,9 @@ public class AiSpawnerBehavior : MonoBehaviour
 
     [Header("Cycle")]
     [SerializeField] private float _spawnPercentage = 30f;
-    [SerializeField] float _spawnIncrease = 1.01f;
+    [SerializeField] private float _spawnIncrease = 1.01f;
+    [SerializeField] private float _spawnTime = 0.5f;
+    [SerializeField] private float _spawnIncreaseTime = 0.001f;
     private float _currentTime = 0f;
 
     [Header("Spawn locations")]
@@ -24,7 +26,6 @@ public class AiSpawnerBehavior : MonoBehaviour
 
     private bool _isCalm = true;
 
-    [SerializeField] private float _spawnTime = 0.5f;
     private float _currentSpawnTime = 0f;
 
     public bool IsCalm
@@ -58,6 +59,7 @@ public class AiSpawnerBehavior : MonoBehaviour
         {
             _currentTime = 0f;
             _spawnPercentage *= _spawnIncrease;
+            _spawnTime -= _spawnIncreaseTime;
         }
 
         _currentSpawnTime += Time.deltaTime;
