@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class SeagullPlayerBehavior : MonoBehaviour
 {
+    [SerializeField] private Animator _animator = null;
+    
     private InputAction _moveInput;
     private MovementBehavior _movementBehavior;
 
@@ -38,12 +40,30 @@ public class SeagullPlayerBehavior : MonoBehaviour
         }
 
         tag = "SeagullPlayer";
+
+        if (_animator != null)
+        {
+            _animator.SetBool("IsSeagull", true);
+        }
+        if (_animator != null)
+        {
+            _animator.SetTrigger("Seagull");
+        }
     }
 
     private void Update()
     {
         Vector2 move = _moveInput.ReadValue<Vector2>();
         _movementBehavior.Move(move, new Vector2(_maxVelocity, _maxVelocity), _movementSpeed);
+
+        if (_rigidBody.velocity.x >= 0f)
+        {
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+        }
 
         for (int i = 0; i < _playerHitCooldown.Length; i++)
         {
