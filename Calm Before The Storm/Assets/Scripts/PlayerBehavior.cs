@@ -67,8 +67,9 @@ public class PlayerBehavior : MonoBehaviour
     private float _fishingCooldownTimer = 0.0f;
     [SerializeField] private float _fishingWaitTime = 1.0f;
     private float _fishingWaitTimer = 0.0f;
-    [SerializeField] private float _fishingSpeedCalm = 1.0f;
-    [SerializeField] private float _fishingSpeedStorm = 0.5f;
+    [SerializeField] private float _fishingSpeed = 1.0f;
+    [SerializeField] private int _fishingPointsCalm = 1;
+    [SerializeField] private int _fishingPointsStorm = 2;
     private float _fishingElapsed = 0.0f;
 
     public bool IsDead
@@ -431,17 +432,26 @@ public class PlayerBehavior : MonoBehaviour
         {
             return;
         }
+
+        if(_fishingWaitTimer < 0.0f)
+        {
+            if (_animator != null)
+            {
+                _animator.SetTrigger("GotPoint");
+            }
+        }
+
         _fishingElapsed += Time.deltaTime;
 
         transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
 
-        float fishingSpeed = _fishingSpeedCalm;
-        if(_stormBehavior && !_stormBehavior.IsCalm) fishingSpeed = _fishingSpeedStorm;
+        int fishingPoints = _fishingPointsCalm;
+        if(_stormBehavior && !_stormBehavior.IsCalm) fishingPoints = _fishingPointsStorm;
         
-        if(_fishingElapsed > fishingSpeed)
+        if(_fishingElapsed > _fishingSpeed)
         {
             _fishingElapsed = 0.0f;
-            _score++;
+            _score += fishingPoints;
             Debug.Log("FishScore: " + _score);
         }
     }
