@@ -7,10 +7,10 @@ using UnityEngine.InputSystem.Utilities;
 public class PlayerBehavior : MonoBehaviour
 {
     [SerializeField] private Animator _animator = null;
-    
-    private AudioSource _audioSource = null;
-    [SerializeField] private AudioClip _waterSplash = null;
-    [SerializeField] private AudioClip _hit = null;
+
+    [SerializeField] private AudioSource _onDeathSound = null;
+    [SerializeField] private AudioSource _onHitSound = null;
+    [SerializeField] private AudioSource _onFishAFishSound = null;
 
     private Rigidbody2D _rigidBody = null;
     private Collider2D _collider = null;
@@ -122,11 +122,7 @@ public class PlayerBehavior : MonoBehaviour
             _animator.SetBool("KnockedBack", true);
         }
 
-        if (_audioSource && _hit)
-        {
-            _audioSource.clip = _hit;
-            _audioSource.Play();
-        }
+        if(_onHitSound) _onHitSound.Play();
     }
 
     void Start()
@@ -135,7 +131,6 @@ public class PlayerBehavior : MonoBehaviour
 
         _rigidBody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
-        _audioSource = GetComponent<AudioSource>();
 
         PlayerInput characterInput = GetComponent<PlayerInput>();
         _moveInput = characterInput.actions["MovementRenee"];
@@ -384,11 +379,7 @@ public class PlayerBehavior : MonoBehaviour
         _isDead = true;
         StartCoroutine(ControllerVibrate(1f, 2f, 0.5f));
 
-        if (_audioSource && _waterSplash)
-        {
-            _audioSource.clip = _waterSplash;
-            _audioSource.Play();
-        }
+        if (_onDeathSound) _onDeathSound.Play();
 
         if (_animator != null)
         {
@@ -452,6 +443,8 @@ public class PlayerBehavior : MonoBehaviour
         {
             _fishingElapsed = 0.0f;
             _score += fishingPoints;
+
+            if(_onFishAFishSound) _onFishAFishSound.Play();
             Debug.Log("FishScore: " + _score);
         }
     }
