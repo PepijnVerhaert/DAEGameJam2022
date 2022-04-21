@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerBehavior : MonoBehaviour
 {
+    [SerializeField] private Animator _animator = null;
+
     private Rigidbody2D _rigidBody = null;
     private Collider2D _collider = null;
     private const string _platformLayer = "Platform";

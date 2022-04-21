@@ -499,11 +499,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
       propertyPath: _fishPercentage
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
+      propertyPath: _spawnPercentage
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
       propertyPath: _krakenPercentage
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
       propertyPath: _krakenSpawnHeight
@@ -511,7 +515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
       propertyPath: _seagullPercentage
-      value: 45
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8705231370574395911, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
       propertyPath: m_RootOrder

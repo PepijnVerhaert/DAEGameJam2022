@@ -28,7 +28,8 @@ public class FishBehavior : MonoBehaviour
     {
         _direction = direction;
         _xMoveForce = Mathf.Abs(_xMoveForce) * _direction;
-        if (_sprite) _sprite.transform.localScale = new Vector3(_direction * 0.2f, 0.2f, 0.2f);
+        //if (_sprite) _sprite.transform.localScale = new Vector3(_direction * 0.2f, 0.2f, 0.2f);
+        transform.localScale = new Vector3(1, _direction, 1);
     }
 
     void Start()
@@ -48,7 +49,7 @@ public class FishBehavior : MonoBehaviour
         UpdateRotation();
 
         //delete if under screen
-        if(transform.position.y < -Screen.height)
+        if (transform.position.y < -Screen.height)
         {
             Destroy(gameObject);
         }

@@ -118,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0f2b00a25a518d4d95240f6e3d19ae5
-      internalID: 986033867
+      spriteID: 57d788e8d0e77b34c815369e0db30de2
+      internalID: -178197232
       vertices: []
       indices: 
       edges: []
@@ -139,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6835cffd678f0c941ad5b8ce37969519
-      internalID: -1654742698
+      spriteID: 92610686d8201e14c9977d9cb9a82eea
+      internalID: 378077647
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d80271525024bf24fa67dd8724bf3443
-      internalID: -572630475
+      spriteID: a9f14c71384535e46a9b59591e9db1d4
+      internalID: 322027422
       vertices: []
       indices: 
       edges: []
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b93be062dbaa81948803b4fbaec03278
-      internalID: 189148832
+      spriteID: 66be5a55be1590148944b3be136c6050
+      internalID: 315403764
       vertices: []
       indices: 
       edges: []
@@ -198,10 +198,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SpriteSheet_seagull_2: -572630475
-      SpriteSheet_seagull_3: 189148832
-      SpriteSheet_seagull_0: 986033867
-      SpriteSheet_seagull_1: -1654742698
+      SpriteSheet_seagull_2: 322027422
+      SpriteSheet_seagull_3: 315403764
+      SpriteSheet_seagull_0: -178197232
+      SpriteSheet_seagull_1: 378077647
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
