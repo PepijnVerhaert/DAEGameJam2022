@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8189720817408159730}
   - component: {fileID: 6142140866851432119}
   - component: {fileID: 1411807836877338475}
-  - component: {fileID: 5130169872339329028}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -51,7 +50,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d628ea415283daa47ae93fc9e4fd6f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
   _yPositionToTransform: 3.3
   _movementSpeedUp: 5
   _negativeYCollisionThreshHold: 0.6
@@ -157,8 +155,12 @@ MonoBehaviour:
     m_ActionName: Player/Fish[/XInputControllerWindows/buttonWest]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: b3bc95e5-410f-4274-ac98-943992d912c0
-    m_ActionName: Player/MovementSeagull[/XInputControllerWindows/leftStick]
+    m_ActionId: 3bfc2808-6afb-4b05-8121-cb0e404f6d11
+    m_ActionName: Player/MovementSeagullHorizontal[/DualShock4GamepadHID/dpad/left,/DualShock4GamepadHID/dpad/right,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/leftStick/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6e792d48-0edc-4e0d-80e6-90bb3333c1a4
+    m_ActionName: Player/MovementSeagullVertical[/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/leftStick/up]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Controller
   m_DefaultActionMap: Player
@@ -176,22 +178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd19718e9b0fd8249a88b3b2ea62cada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5130169872339329028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1049077426281411}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59d5b8d634b18ba42adfac2b97ad9980, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movementSpeed: 5
-  _maxVelocity: 5
-  _maxPlayerHitCooldown: 3
-  _knockbackForce: {x: 500, y: 300}
 --- !u!1 &96653688661040105
 GameObject:
   m_ObjectHideFlags: 0

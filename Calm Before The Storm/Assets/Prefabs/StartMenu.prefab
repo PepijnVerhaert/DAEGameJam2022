@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366b02dbfd076df47bb96cd7f6532ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScene: SariScene
+  gameScene: Jochen
 --- !u!114 &8238421679378561710
 MonoBehaviour:
   m_ObjectHideFlags: 0
