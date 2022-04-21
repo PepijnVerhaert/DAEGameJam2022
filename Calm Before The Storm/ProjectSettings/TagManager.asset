@@ -60,3 +60,6 @@ TagManager:
   - name: Foreground
     uniqueID: 0
     locked: 0
+  - name: Curtains
+    uniqueID: 0
+    locked: 0
