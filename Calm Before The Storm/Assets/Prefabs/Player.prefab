@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6142140866851432119}
   - component: {fileID: 1411807836877338475}
   - component: {fileID: 7930481924707510681}
+  - component: {fileID: 3810545087437848158}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -52,6 +53,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 6369533595965029546}
+  _waterSplash: {fileID: 8300000, guid: fce32c6ad45ff9f4b93c2f523f5b8616, type: 3}
+  _hit: {fileID: 8300000, guid: 79c43e80e85ee0845b75a7184f1b466a, type: 3}
   _yPositionToTransform: 3.3
   _movementSpeedUp: 5
   _negativeYCollisionThreshHold: 0.6
@@ -157,12 +160,8 @@ MonoBehaviour:
     m_ActionName: Player/Fish[/XInputControllerWindows/buttonWest]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 3bfc2808-6afb-4b05-8121-cb0e404f6d11
-    m_ActionName: Player/MovementSeagullHorizontal[/DualShock4GamepadHID/dpad/left,/DualShock4GamepadHID/dpad/right,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/leftStick/right]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6e792d48-0edc-4e0d-80e6-90bb3333c1a4
-    m_ActionName: Player/MovementSeagullVertical[/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/leftStick/up]
+    m_ActionId: 83d476ef-8121-48a2-87d9-e3553d2e1461
+    m_ActionName: Player/MovementSeagull[/DualShock4GamepadHID/leftStick,/DualShock4GamepadHID/dpad]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Controller
   m_DefaultActionMap: Player
@@ -192,6 +191,106 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d5b8d634b18ba42adfac2b97ad9980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movementSpeed: 5
+  _maxVelocity: 5
+  _maxPlayerHitCooldown: 3
+  _knockbackForce: {x: 500, y: 300}
+--- !u!82 &3810545087437848158
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049077426281411}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: fce32c6ad45ff9f4b93c2f523f5b8616, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &96653688661040105
 GameObject:
   m_ObjectHideFlags: 0

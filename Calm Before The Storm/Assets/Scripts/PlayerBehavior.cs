@@ -6,6 +6,10 @@ using UnityEngine.InputSystem;
 public class PlayerBehavior : MonoBehaviour
 {
     [SerializeField] private Animator _animator = null;
+    
+    private AudioSource _audioSource = null;
+    [SerializeField] private AudioClip _waterSplash = null;
+    [SerializeField] private AudioClip _hit = null;
 
     private Rigidbody2D _rigidBody = null;
     private Collider2D _collider = null;
@@ -114,6 +118,12 @@ public class PlayerBehavior : MonoBehaviour
         {
             _animator.SetBool("KnockedBack", true);
         }
+
+        if (_audioSource && _hit)
+        {
+            _audioSource.clip = _hit;
+            _audioSource.Play();
+        }
     }
 
     void Start()
@@ -122,6 +132,7 @@ public class PlayerBehavior : MonoBehaviour
 
         _rigidBody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
+        _audioSource = GetComponent<AudioSource>();
 
         PlayerInput characterInput = GetComponent<PlayerInput>();
         _moveInput = characterInput.actions["MovementRenee"];
@@ -359,10 +370,18 @@ public class PlayerBehavior : MonoBehaviour
     public void OnDeath()
     {
         _isDead = true;
+
+        if(_audioSource && _waterSplash)
+        {
+            _audioSource.clip = _waterSplash;
+            _audioSource.Play();
+        }
+
         if (_animator != null)
         {
             _animator.SetBool("IsDead", true);
         }
+
         StartCoroutine(MoveUp());
     }
 

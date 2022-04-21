@@ -24,7 +24,6 @@ public class GameMode : MonoBehaviour
             if (player.tag != "SeagullPlayer" && !player.IsDead) nrPlayersAlive++;
         }
 
-        Debug.Log(nrPlayersAlive);
         if(nrPlayersAlive <= 0)
         {
             SceneManager.LoadScene("EndMenu");
