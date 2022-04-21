@@ -55,6 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 6369533595965029546}
+  _icon: {fileID: 2437742519379938471}
   _onDeathSound: {fileID: 3810545087437848158}
   _onHitSound: {fileID: 1711234196730514674}
   _onFishAFishSound: {fileID: 8060441759136000443}
@@ -632,7 +633,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2524414439139691654}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
