@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d628ea415283daa47ae93fc9e4fd6f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
+  _animator: {fileID: 6369533595965029546}
   _yPositionToTransform: 3.3
   _movementSpeedUp: 5
   _negativeYCollisionThreshHold: 0.6
