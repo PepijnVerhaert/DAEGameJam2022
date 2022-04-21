@@ -80,7 +80,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (!playerPrefab) return;
         
-        for (int i = 0; i < PlayerManager.Instance.NrPlayers; i++)
+        for (int i = 0; i < _nrPlayers; i++)
         {
             if (spawnTransforms.Count >= i && _players.Count < _maxPlayers)
             {

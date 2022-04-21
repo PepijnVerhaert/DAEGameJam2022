@@ -14,5 +14,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jochen.unity
     guid: 4aa3f7a74d4efda4bb1b7ddcaaefe4e7
+  - enabled: 0
+    path: Assets/Scenes/Pepijn.unity
+    guid: 20dce550de5b46f44ae9215e4a8dcf7f
+  - enabled: 1
+    path: Assets/Scenes/SariScene.unity
+    guid: f8ae792788bc6414395232e36c623043
+  - enabled: 1
+    path: Assets/Scenes/EndMenu.unity
+    guid: eec6f15ba4f15a741b50a5653692b2fb
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e3234d4146d7d07419de29611904bc1d, type: 2}

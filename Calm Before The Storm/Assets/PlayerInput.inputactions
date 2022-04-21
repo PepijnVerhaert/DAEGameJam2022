@@ -141,6 +141,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "daa2b7b1-37e3-4c05-a3a1-534be52f2bfc",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Fish",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "DPad",
                     "id": "b5e7239b-38e5-4b33-8040-e5d8f51682cf",
                     "path": "1DAxis",
