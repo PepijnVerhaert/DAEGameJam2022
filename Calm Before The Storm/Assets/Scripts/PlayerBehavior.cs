@@ -61,10 +61,9 @@ public class PlayerBehavior : MonoBehaviour
 
     private string _gamePadName;
 
-    //fishing
+    [Header("Fishing")]
     private bool _fishingInput = false;
     private bool _fishing = false;
-    private int _score = 0;
     [SerializeField] private float _fishingCooldownTime = 2.0f;
     private float _fishingCooldownTimer = 0.0f;
     [SerializeField] private float _fishingWaitTime = 1.0f;
@@ -74,6 +73,16 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] private int _fishingPointsStorm = 2;
     private float _fishingElapsed = 0.0f;
 
+    [Header("Score")]
+    private int _score = 0;
+    private float _scoreOverTimeElapsed = 0.0f;
+    [SerializeField] private float _scoreOverTimeInterval = 3.0f;
+
+    public bool DisableInput
+    {
+        get { return _disableInput; }
+        set { _disableInput = value; }
+    }
 
     public bool IsDead
     {
@@ -216,6 +225,19 @@ public class PlayerBehavior : MonoBehaviour
 
         UpdateMovement();
         UpdateFishing();
+        UpdateScoreOverTime();
+    }
+
+    private void UpdateScoreOverTime()
+    {
+        if (_isDead) return;
+
+        _scoreOverTimeElapsed += Time.deltaTime;
+        if(_scoreOverTimeElapsed > _scoreOverTimeInterval)
+        {
+            _scoreOverTimeElapsed = 0.0f;
+            _score++;
+        }
     }
 
     private void UpdateMovement()
