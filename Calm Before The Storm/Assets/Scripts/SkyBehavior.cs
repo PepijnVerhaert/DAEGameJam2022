@@ -5,13 +5,16 @@ using UnityEngine;
 public class SkyBehavior : MonoBehaviour
 {
     private CloudBehavior[] _cloudBehaviors = new CloudBehavior[3];
+    [SerializeField]
     private LoomingCloudBehavior _loomingCloud = null;
+    [SerializeField]
+    private BackgroundBehavior _background = null;
 
     // Start is called before the first frame update
     void Start()
     {
         _cloudBehaviors = FindObjectsOfType<CloudBehavior>();
-        _loomingCloud = FindObjectOfType<LoomingCloudBehavior>();
+        //_loomingCloud = FindObjectOfType<LoomingCloudBehavior>();
     }
 
     // Update is called once per frame
@@ -24,8 +27,9 @@ public class SkyBehavior : MonoBehaviour
     {
         for (int i = 0; i < _cloudBehaviors.Length; i++)
         {
-            _cloudBehaviors[i].ChangeWeather(isCalm);
+            if(_cloudBehaviors[i]) _cloudBehaviors[i].ChangeWeather(isCalm);
         }
-        _loomingCloud.ChangeWeather(isCalm);
+        if(_loomingCloud)_loomingCloud.ChangeWeather(isCalm);
+        if(_background) _background.ChangeWeather(isCalm);
     }
 }
