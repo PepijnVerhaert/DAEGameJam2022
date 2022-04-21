@@ -104,7 +104,7 @@ public class SeagullPlayerBehavior : MonoBehaviour
             PlayerBehavior behavior = collision.gameObject.GetComponent<PlayerBehavior>();
             if (_stormBehavior.IsCalm)
             {
-                behavior.Stun(0.01f);
+                behavior.Stun(0.0f);
             }
             else
             {

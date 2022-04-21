@@ -78,17 +78,21 @@ public class PlayerManager : MonoBehaviour
             Debug.Log(_nrPlayers);
         }
     }
-    public void SpawnPlayers(List<Transform> spawnTransforms, GameObject playerPrefab)
+    public void SpawnPlayers(List<Transform> spawnTransforms, List<GameObject> playerPrefabs)
     {
-        if (!playerPrefab) return;
+        if (playerPrefabs.Count == 0) return;
         
         for (int i = 0; i < _nrPlayers; i++)
         {
-            if (spawnTransforms.Count >= i && _players.Count < _maxPlayers)
+            if (spawnTransforms.Count >= i && playerPrefabs.Count >= i && _players.Count < _maxPlayers)
             {
-                GameObject player = Instantiate(playerPrefab, spawnTransforms[i].position, Quaternion.identity);
+                GameObject player = Instantiate(playerPrefabs[i], spawnTransforms[i].position, Quaternion.identity);
                 PlayerBehavior playerComp = player.GetComponent<PlayerBehavior>();
                 _players.Add(playerComp);
+
+                ////add icon
+                //IconController iconController = player.GetComponent<IconController>();
+                //if(iconController) iconController.spr
 
                 // Mark gamepad x as being for player x.
                 if (i >= Gamepad.all.Count) continue;

@@ -49,4 +49,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _playerPrefab: {fileID: 1049077426281411, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
+  _playerPrefabs:
+  - {fileID: 1049077426281411, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
+  - {fileID: 8659177909931128466, guid: 9198f7befe8fef44d98efbe066b30d7c, type: 3}
+  - {fileID: 5153487533222930590, guid: 9213d2d51deb0d04f8bf754e9c166910, type: 3}
+  - {fileID: 1670314706242652434, guid: ea8ff88fdfdb1184393c50064df3d4cb, type: 3}
+  _loadToEndScreenTime: 2

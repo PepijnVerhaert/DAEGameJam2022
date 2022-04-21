@@ -6,6 +6,10 @@ public class IconController : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _icon = null;
 
+    //public void SetIconTexture(Texture2D texture)
+    //{
+    //    if (_icon) _icon.sprite = Resources.Load<Sprite>("img1");
+    //}
 
     // Start is called before the first frame update
     void Start()

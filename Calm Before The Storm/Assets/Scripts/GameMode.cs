@@ -7,13 +7,14 @@ using UnityEngine.SceneManagement;
 public class GameMode : MonoBehaviour
 {
     [SerializeField] private List<Transform> _spawnTransforms = new List<Transform>();
-    [SerializeField] private GameObject _playerPrefab = null;
+    //[SerializeField] private List<Texture2D> _icons = new List<Texture2D>();
+    [SerializeField] private List<GameObject> _playerPrefabs = null;
     //private int _maxScoreFishing = 0;
     [SerializeField] private float _loadToEndScreenTime = 2f;
 
     void Start()
     {
-        PlayerManager.Instance.SpawnPlayers(_spawnTransforms, _playerPrefab);
+        PlayerManager.Instance.SpawnPlayers(_spawnTransforms, _playerPrefabs);
     }
 
     void Update()
@@ -35,8 +36,6 @@ public class GameMode : MonoBehaviour
     {
         yield return new WaitForSeconds(_loadToEndScreenTime);
         SceneManager.LoadScene("EndMenu");
-        var players = PlayerManager.Instance.Players;
-        players.Clear();
     }
 
 }
