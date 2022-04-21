@@ -66,7 +66,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -118,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19bc1cf023267b54cb65d71de401db71
-      internalID: -1184216739
+      spriteID: 4dbbdd6642574ee4ebbfb4738a9293e6
+      internalID: 1744959470
       vertices: []
       indices: 
       edges: []
@@ -139,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f353b7710781704081a41e068102578
-      internalID: 528697477
+      spriteID: c85a0e70d6218e943b75e489430dec9a
+      internalID: 59927554
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9615642c3a0d95a42b0c956e0fa6a1cc
-      internalID: 435998764
+      spriteID: 5f1221add60bcbb41bd4a0fe5c732d9d
+      internalID: 573543420
       vertices: []
       indices: 
       edges: []
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 323b108493826f542855dd32670c7385
-      internalID: 661790434
+      spriteID: a3d911fa4b7b0dd4d9fae459420695d7
+      internalID: -1377093805
       vertices: []
       indices: 
       edges: []
@@ -202,8 +202,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f555edf849d362742b9c15cb76860ced
-      internalID: 1704069106
+      spriteID: 7f5cbf96cf7823945a7daf6f2b80b42b
+      internalID: 227950180
       vertices: []
       indices: 
       edges: []
@@ -219,11 +219,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_CharacterSelectionSprite_3: 661790434
-      UI_CharacterSelectionSprite_4: 1704069106
-      UI_CharacterSelectionSprite_0: -1184216739
-      UI_CharacterSelectionSprite_2: 435998764
-      UI_CharacterSelectionSprite_1: 528697477
+      UI_CharacterSelectionSprite_3: -1377093805
+      UI_CharacterSelectionSprite_4: 227950180
+      UI_CharacterSelectionSprite_0: 1744959470
+      UI_CharacterSelectionSprite_2: 573543420
+      UI_CharacterSelectionSprite_1: 59927554
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
