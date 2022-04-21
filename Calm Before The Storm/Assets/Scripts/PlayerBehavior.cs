@@ -13,6 +13,7 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] private AudioSource _onDeathSound = null;
     [SerializeField] private AudioSource _onHitSound = null;
     [SerializeField] private AudioSource _onFishAFishSound = null;
+    [SerializeField] private AudioSource _reelingSound = null;
 
     private Rigidbody2D _rigidBody = null;
     private Collider2D _collider = null;
@@ -116,6 +117,7 @@ public class PlayerBehavior : MonoBehaviour
             {
                 _animator.SetBool("Fishing", false);
             }
+            if (_reelingSound) _reelingSound.Stop();
             _fishing = false;
             _fishingCooldownTimer = _fishingCooldownTime;
         }
@@ -435,6 +437,7 @@ public class PlayerBehavior : MonoBehaviour
             {
                 _fishingWaitTimer = _fishingWaitTime;
                 _fishing = true;
+                if (_reelingSound) _reelingSound.Play();
                 if (_animator != null)
                 {
                     _animator.SetBool("Fishing", true);
@@ -466,6 +469,7 @@ public class PlayerBehavior : MonoBehaviour
         {
             if (_animator != null)
             {
+                if (_reelingSound) _reelingSound.Stop();
                 _animator.SetTrigger("GotPoint");
             }
         }
