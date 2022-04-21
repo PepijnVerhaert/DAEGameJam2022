@@ -65,6 +65,16 @@ public class SeagullPlayerBehavior : MonoBehaviour
             transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
         }
 
+        // reset velocity for snapping turns
+        if (move.x.Equals(0f) && move.y.Equals(0f))
+        {
+            //_rigidBody.velocity = new Vector2(0f, 0f);
+            //_rigidBody.velocity = new Vector2(_rigidBody.velocity.x, 0f);
+            _rigidBody.velocity = Vector2.Lerp(_rigidBody.velocity, Vector2.zero, Time.deltaTime * 4f);
+        }
+
+
+
         for (int i = 0; i < _playerHitCooldown.Length; i++)
         {
             _playerHitCooldown[i] += Time.deltaTime;
