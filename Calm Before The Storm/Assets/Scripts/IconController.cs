@@ -27,7 +27,6 @@ public class IconController : MonoBehaviour
     {
         if (!_icon) return;
         float offset = 0.5f;
-        Debug.Log(offset);
         float screenHalfWidth = 9.0f;
         float screenHalfHeight = 5.0f;
 

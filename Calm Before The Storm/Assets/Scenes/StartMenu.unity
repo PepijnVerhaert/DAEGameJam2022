@@ -571,6 +571,9 @@ MonoBehaviour:
   _enterDelay: 0
   _leaveDelay: 0
   _leaveDistance: 10
+  _swingAngle: 2
+  _swingStrength: 0.3
+  _swingSpeed: 0.5
 --- !u!1 &1114101130
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,6 +973,9 @@ MonoBehaviour:
   _enterDelay: 0
   _leaveDelay: 0
   _leaveDistance: 10
+  _swingAngle: 1
+  _swingStrength: 0.1
+  _swingSpeed: 1
 --- !u!1 &1986864865
 GameObject:
   m_ObjectHideFlags: 0
