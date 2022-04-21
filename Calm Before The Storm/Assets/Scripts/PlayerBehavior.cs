@@ -13,6 +13,7 @@ public class PlayerBehavior : MonoBehaviour
     private const string _platformIgnore = "PlatformIgnore";
 
     [Header("Death")]
+    private bool _isDead = false;
     [SerializeField] private float _yPositionToTransform = 3.3f;
     [SerializeField] private float _movementSpeedUp = 5f;
 
@@ -29,6 +30,7 @@ public class PlayerBehavior : MonoBehaviour
 
     // MOVEMENT
     [Header("Movement")]
+    private bool _disableInput = false;
     [SerializeField] private Vector2 _maxVelocity = new Vector2(5f, 10f);
     [SerializeField] private float _movementSpeed = 10f;
     [SerializeField] private float _movementSpeedInAir = 3f;
@@ -49,6 +51,7 @@ public class PlayerBehavior : MonoBehaviour
     private StormBehavior _stormBehavior;
 
     //fishing
+    private bool _fishing = false;
     private int _score = 0;
     [SerializeField] private float _fishingCooldownTime = 2.0f;
     private float _fishingCooldownTimer = 0.0f;
@@ -56,16 +59,23 @@ public class PlayerBehavior : MonoBehaviour
     private float _fishingWaitTimer = 0.0f;
     [SerializeField] private float _fishingSpeedCalm = 1.0f;
     [SerializeField] private float _fishingSpeedStorm = 0.5f;
+    private float _fishingElapsed = 0.0f;
 
     public void Fish(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if (context.performed && !_fishing)
         {
-            Debug.Log("startFishing");
+            if (_fishingCooldownTimer < 0.0f)
+            {
+                _fishingWaitTimer = _fishingWaitTime;
+                _fishing = true;
+            }
         }
-        else 
+        else if(_fishing)
         {
-            Debug.Log("StopFishing");
+            _fishing = false;
+            _fishingWaitTimer = 0.0f;
+            _fishingCooldownTimer = _fishingCooldownTime;
         }
     }
 
@@ -77,6 +87,12 @@ public class PlayerBehavior : MonoBehaviour
     public void Stun(float time)
     {
         _stunTimer = time;
+        if(_fishing)
+        {
+            _fishing = false;
+            _fishingCooldownTimer = _fishingCooldownTime;
+            _fishingWaitTime = 0.0f;
+        }
     }
 
     void Start()
@@ -118,6 +134,14 @@ public class PlayerBehavior : MonoBehaviour
 
     private void Update()
     {
+        _stunTimer -= Time.deltaTime;
+        if (_stunTimer > 0.0f || _fishing || _isDead) _disableInput = true;
+        else
+        {
+            _disableInput = false;
+        }
+
+
         if (_stormBehavior.IsCalm)
         {
             _calmDelayCurrent += Time.deltaTime;
@@ -133,14 +157,14 @@ public class PlayerBehavior : MonoBehaviour
         }
 
         UpdateMovement();
+        UpdateFishing();
     }
 
     private void UpdateMovement()
     {
         if (!_movementBehavior) return;
 
-        _stunTimer -= Time.deltaTime;
-        if (_stunTimer > 0.0f) return;
+        if (_disableInput) return;
 
         float moveX = _moveInput.ReadValue<float>();
 
@@ -249,8 +273,28 @@ public class PlayerBehavior : MonoBehaviour
 
     public void OnDeath()
     {
-        _stunTimer = 10f;
+        _isDead = true;
         StartCoroutine(MoveUp());
+    }
+
+    private void UpdateFishing()
+    {
+        _fishingCooldownTimer -= Time.deltaTime;
+        _fishingWaitTimer -= Time.deltaTime;
+
+        if (!_fishing || _fishingWaitTimer > 0.0f || _fishingCooldownTimer > 0.0f) return;
+
+        _fishingElapsed += Time.deltaTime;
+
+        float fishingSpeed = _fishingSpeedCalm;
+        if(_stormBehavior && !_stormBehavior.IsCalm) fishingSpeed = _fishingSpeedStorm;
+        
+        if(_fishingElapsed > fishingSpeed)
+        {
+            _fishingElapsed = 0.0f;
+            _score++;
+            Debug.Log("FishScore: " + _score);
+        }
     }
 
     IEnumerator MoveUp()
@@ -265,8 +309,6 @@ public class PlayerBehavior : MonoBehaviour
             transform.position = newPos;
             yield return null;
         }
-
-        _stunTimer = 0f;
 
         // transform to seagull
         enabled = false;

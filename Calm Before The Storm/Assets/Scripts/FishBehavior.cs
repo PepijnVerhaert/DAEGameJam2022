@@ -60,7 +60,6 @@ public class FishBehavior : MonoBehaviour
         Vector2 velocity = _rigidBody2D.velocity.normalized;
         float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
 
-        Debug.Log(angle);
         if (_sprite) _sprite.transform.rotation = Quaternion.Euler(0.0f, 0.0f, angle);
     }
 
