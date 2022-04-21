@@ -26,6 +26,7 @@ public class LoomingCloudBehavior : MonoBehaviour
         {
             transform.Translate(0, _leaveDistance, 0);
         }
+        _weatherChangeTimeAcc = 0f;
     }
 
     // Update is called once per frame

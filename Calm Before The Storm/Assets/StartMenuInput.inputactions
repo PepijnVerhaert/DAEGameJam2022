@@ -38,7 +38,7 @@
                     "name": "",
                     "id": "8167b660-9713-4f62-9f16-85eb297ed3b4",
                     "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "StartGame",

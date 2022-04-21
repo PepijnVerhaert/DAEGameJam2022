@@ -12,9 +12,12 @@ public class GameMode : MonoBehaviour
     //private int _maxScoreFishing = 0;
     [SerializeField] private float _loadToEndScreenTime = 2f;
 
+    private CurtainLiftUpBehavior _curtainBehavior;
+
     void Start()
     {
         PlayerManager.Instance.SpawnPlayers(_spawnTransforms, _playerPrefabs);
+        _curtainBehavior = FindObjectOfType<CurtainLiftUpBehavior>();
     }
 
     void Update()
@@ -34,6 +37,7 @@ public class GameMode : MonoBehaviour
 
     IEnumerator LoadEndScene()
     {
+        _curtainBehavior.OnGameOver();
         yield return new WaitForSeconds(_loadToEndScreenTime);
         SceneManager.LoadScene("EndMenu");
     }

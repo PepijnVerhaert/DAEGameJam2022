@@ -78,10 +78,12 @@ public class PlayerBehavior : MonoBehaviour
     private float _scoreOverTimeElapsed = 0.0f;
     [SerializeField] private float _scoreOverTimeInterval = 3.0f;
 
+
+    private bool _noMove = false;
     public bool DisableInput
     {
-        get { return _disableInput; }
-        set { _disableInput = value; }
+        get { return _noMove; }
+        set { _noMove = value; }
     }
 
     public bool IsDead
@@ -202,8 +204,11 @@ public class PlayerBehavior : MonoBehaviour
                 transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
             }
         }
-        if (_stunTimer > 0.0f || _fishing || _isDead) _disableInput = true;
-        else
+        if (_stunTimer > 0.0f || _fishing || _isDead || _noMove)
+        {
+            _disableInput = true;
+        }
+        else if (_disableInput)
         {
             _disableInput = false;
         }

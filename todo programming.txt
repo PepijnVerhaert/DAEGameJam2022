@@ -1,19 +1,32 @@
 lighning
-knockback enemies
+moving clouds
+							knockback enemies
 							seagull flip
 							death box
 							fishing
-background scroll
+							background scroll
 							remove raycasts
 UI
 HUD
-spawn points close to windows
-remove side rays
-decrease amount of time spawns
-
-color players
+							spawn points close to windows
+							remove side rays
+							decrease amount of time spawns
+							fix platforms
+							color players
 dead body
-
-sound
+							sound
 screenshake
-controller vibration
+							seagull hits player disable input
+							controller vibration
+							locked into fishing
+
+							instant stop seagull player
+							stuck against colliders
+							fly trhough as ghost
+Add score when fish get for each player
+window dark
+							die off screen, player x will be set to spawn point
+							player faces off screen
+							when die
+							when hit - short, soft
+							when you hit someone as seagull

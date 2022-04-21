@@ -8,6 +8,15 @@ using UnityEngine.SceneManagement;
 public class StartMenu : MonoBehaviour
 {
     [SerializeField] private string gameScene = "Jochen";
+    [SerializeField] private GameObject players1;
+    [SerializeField] private GameObject players2;
+    [SerializeField] private GameObject players3;
+    [SerializeField] private GameObject players4;
+
+    [SerializeField] private GameObject controlls;
+
+    private int _timesPressed = 0;
+    [SerializeField] private float _delayBeforeSceneSwap = 2f;
 
     public void AddPlayer(InputAction.CallbackContext context)
     {
@@ -16,24 +25,62 @@ public class StartMenu : MonoBehaviour
 
     public void RemovePlayer(InputAction.CallbackContext context)
     {
-        if (context.performed) PlayerManager.Instance.RemovePlayer();
+        if (!context.performed) return;
+        PlayerManager.Instance.RemovePlayer();
+    }
+
+    private IEnumerator SwitchScene()
+    {
+        yield return new WaitForSeconds(_delayBeforeSceneSwap);
+        SceneManager.LoadScene(gameScene);
     }
 
     public void StartGame(InputAction.CallbackContext context)
     {
-        SceneManager.LoadScene(gameScene);
+        if (context.performed)
+        {
+            switch (_timesPressed)
+            {
+                case 0:
+                    ++_timesPressed;
+                    players1.transform.parent.gameObject.GetComponent<LoomingCloudBehavior>().ChangeWeather(true);
+                    break;
+                case 1:
+                    controlls.GetComponent<LoomingCloudBehavior>().ChangeWeather(true);
+                    StartCoroutine(SwitchScene());
+                    break;
+            }
+        }
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        switch (PlayerManager.Instance.NrPlayers)
+        {
+            case 1:
+                players1.gameObject.SetActive(true);
+                players2.gameObject.SetActive(false);
+                players3.gameObject.SetActive(false);
+                players4.gameObject.SetActive(false);
+                break;
+            case 2:
+                players1.gameObject.SetActive(false);
+                players2.gameObject.SetActive(true);
+                players3.gameObject.SetActive(false);
+                players4.gameObject.SetActive(false);
+                break;
+            case 3:
+                players1.gameObject.SetActive(false);
+                players2.gameObject.SetActive(false);
+                players3.gameObject.SetActive(true);
+                players4.gameObject.SetActive(false);
+                break;
+            case 4:
+                players1.gameObject.SetActive(false);
+                players2.gameObject.SetActive(false);
+                players3.gameObject.SetActive(false);
+                players4.gameObject.SetActive(true);
+                break;
+        }
     }
 }
