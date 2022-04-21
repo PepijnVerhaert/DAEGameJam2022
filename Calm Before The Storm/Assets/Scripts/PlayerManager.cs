@@ -44,6 +44,7 @@ public class PlayerManager : MonoBehaviour
     }
     #endregion
 
+    private List<PlayerBehavior> _players = new List<PlayerBehavior>();
     private int _nrPlayers = 1;
     private int _maxPlayers = 4;
     private int _minPlayers = 1;
@@ -51,6 +52,11 @@ public class PlayerManager : MonoBehaviour
     public int NrPlayers
     {
         get { return _nrPlayers; }
+    }
+
+    public List<PlayerBehavior> Players
+    {
+        get { return _players; }
     }
 
     public void AddPlayer()
@@ -70,10 +76,22 @@ public class PlayerManager : MonoBehaviour
             Debug.Log(_nrPlayers);
         }
     }
-
+    public void SpawnPlayers(List<Transform> spawnTransforms, GameObject playerPrefab)
+    {
+        if (!playerPrefab) return;
+        
+        for (int i = 0; i < PlayerManager.Instance.NrPlayers; i++)
+        {
+            if (spawnTransforms.Count >= i && _players.Count < _maxPlayers)
+            {
+                GameObject player = Instantiate(playerPrefab, spawnTransforms[i].position, Quaternion.identity);
+                PlayerBehavior playerComp = player.GetComponent<PlayerBehavior>();
+                _players.Add(playerComp);
+            }
+        }
+    }
     void Start()
     {
-        
     }
 
     void Update()

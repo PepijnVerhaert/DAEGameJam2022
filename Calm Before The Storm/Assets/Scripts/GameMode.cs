@@ -6,11 +6,11 @@ public class GameMode : MonoBehaviour
 {
     [SerializeField] private List<Transform> _spawnTransforms = new List<Transform>();
     [SerializeField] private GameObject _playerPrefab = null;
-
+    private int _maxScoreFishing = 0;
 
     void Start()
     {
-        SpawnPlayers();
+        PlayerManager.Instance.SpawnPlayers(_spawnTransforms, _playerPrefab);
     }
 
     void Update()
@@ -18,16 +18,5 @@ public class GameMode : MonoBehaviour
         
     }
 
-    private void SpawnPlayers()
-    {
-        if (!_playerPrefab) return;
 
-        for (int i = 0; i < PlayerManager.Instance.NrPlayers; i++)
-        {
-            if (_spawnTransforms.Count >= i)
-            {
-                Instantiate(_playerPrefab, _spawnTransforms[i].position, Quaternion.identity);
-            }
-        }
-    }
 }

@@ -44,7 +44,33 @@ public class PlayerBehavior : MonoBehaviour
 
     private float _stunTimer = 0.0f;
 
-    StormBehavior _stormBehavior;
+    private StormBehavior _stormBehavior;
+
+    //fishing
+    private int _score = 0;
+    [SerializeField] private float _fishingCooldownTime = 2.0f;
+    private float _fishingCooldownTimer = 0.0f;
+    [SerializeField] private float _fishingWaitTime = 1.0f;
+    private float _fishingWaitTimer = 0.0f;
+    [SerializeField] private float _fishingSpeedCalm = 1.0f;
+    [SerializeField] private float _fishingSpeedStorm = 0.5f;
+
+    public void Fish(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            Debug.Log("startFishing");
+        }
+        else 
+        {
+            Debug.Log("StopFishing");
+        }
+    }
+
+    public int Score
+    {
+        get { return _score; }
+    }
 
     public void Stun(float time)
     {
