@@ -411,13 +411,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3259540488202247189, guid: a33b7237b4fc51d418a1e76dcf1bf9d9, type: 3}
+      propertyPath: m_Offset.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5869905223238586797, guid: a33b7237b4fc51d418a1e76dcf1bf9d9, type: 3}
       propertyPath: m_Name
       value: Ocean
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684004959183974759, guid: a33b7237b4fc51d418a1e76dcf1bf9d9, type: 3}
-      propertyPath: _stormHeight
-      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a33b7237b4fc51d418a1e76dcf1bf9d9, type: 3}
