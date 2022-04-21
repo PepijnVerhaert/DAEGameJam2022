@@ -57,6 +57,7 @@ public class PlayerBehavior : MonoBehaviour
     private StormBehavior _stormBehavior;
 
     //fishing
+    private bool _fishingInput = false;
     private bool _fishing = false;
     private int _score = 0;
     [SerializeField] private float _fishingCooldownTime = 2.0f;
@@ -79,27 +80,13 @@ public class PlayerBehavior : MonoBehaviour
 
     public void Fish(InputAction.CallbackContext context)
     {
-        if (context.performed && !_fishing)
+        if (context.performed)
         {
-            if (_fishingCooldownTimer < 0.0f)
-            {
-                _fishingWaitTimer = _fishingWaitTime;
-                _fishing = true;
-                if (_animator != null)
-                {
-                    _animator.SetBool("Fishing", true);
-                }
-            }
+            _fishingInput = true;
         }
-        else if(_fishing)
+        else
         {
-            _fishing = false;
-            if (_animator != null)
-            {
-                _animator.SetBool("Fishing", false);
-            }
-            _fishingWaitTimer = 0.0f;
-            _fishingCooldownTimer = _fishingCooldownTime;
+            _fishingInput = false;
         }
     }
 
@@ -394,6 +381,31 @@ public class PlayerBehavior : MonoBehaviour
 
     private void UpdateFishing()
     {
+        if(_fishingInput)
+        {
+            if (!_fishing && _fishingCooldownTimer < 0.0f)
+            {
+                _fishingWaitTimer = _fishingWaitTime;
+                _fishing = true;
+                if (_animator != null)
+                {
+                    _animator.SetBool("Fishing", true);
+                }
+            }
+        }
+        else 
+        {
+            if (_fishing && _fishingWaitTimer < 0.0f)
+            {
+                _fishing = false;
+                if (_animator != null)
+                {
+                    _animator.SetBool("Fishing", false);
+                }
+                _fishingCooldownTimer = _fishingCooldownTime;
+            }
+        }
+
         _fishingCooldownTimer -= Time.deltaTime;
         _fishingWaitTimer -= Time.deltaTime;
 
