@@ -61,6 +61,11 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] private float _fishingSpeedStorm = 0.5f;
     private float _fishingElapsed = 0.0f;
 
+    public bool IsDead
+    {
+        get { return _isDead; }
+    }
+
     public void Fish(InputAction.CallbackContext context)
     {
         if (context.performed && !_fishing)
