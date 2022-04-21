@@ -214,6 +214,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1480889861130120118, guid: a809dc5a40d962c47a70bf0287b3adee, type: 3}
+      propertyPath: gameScene
+      value: SariScene
+      objectReference: {fileID: 0}
     - target: {fileID: 3438964444005339838, guid: a809dc5a40d962c47a70bf0287b3adee, type: 3}
       propertyPath: m_Name
       value: EndMenu

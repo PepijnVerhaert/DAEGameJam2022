@@ -91,6 +91,7 @@ public class PlayerManager : MonoBehaviour
                 _players.Add(playerComp);
 
                 // Mark gamepad x as being for player x.
+                if (i >= Gamepad.all.Count) continue;
                 string name = "Player" + i;
                 InputSystem.SetDeviceUsage(Gamepad.all[i], name);
                 playerComp.GamepadName = name;

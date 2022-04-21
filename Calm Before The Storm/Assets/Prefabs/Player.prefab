@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6142140866851432119}
   - component: {fileID: 1411807836877338475}
   - component: {fileID: 7930481924707510681}
+  - component: {fileID: 7779914698199129391}
   - component: {fileID: 3810545087437848158}
   - component: {fileID: 1711234196730514674}
   - component: {fileID: 8060441759136000443}
@@ -56,7 +57,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 6369533595965029546}
-  _icon: {fileID: 2437742519379938471}
   _onDeathSound: {fileID: 3810545087437848158}
   _onHitSound: {fileID: 1711234196730514674}
   _onFishAFishSound: {fileID: 8060441759136000443}
@@ -203,6 +203,19 @@ MonoBehaviour:
   _maxVelocity: 5
   _maxPlayerHitCooldown: 3
   _knockbackForce: {x: 500, y: 300}
+--- !u!114 &7779914698199129391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049077426281411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68fcecd23191cfa448b437a8d5b05695, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _icon: {fileID: 2437742519379938471}
 --- !u!82 &3810545087437848158
 AudioSource:
   m_ObjectHideFlags: 0

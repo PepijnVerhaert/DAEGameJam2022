@@ -7,7 +7,6 @@ using UnityEngine.InputSystem.Utilities;
 public class PlayerBehavior : MonoBehaviour
 {
     [SerializeField] private Animator _animator = null;
-    [SerializeField] private SpriteRenderer _icon = null;
 
     //sound effects
     [SerializeField] private AudioSource _onDeathSound = null;
@@ -217,7 +216,6 @@ public class PlayerBehavior : MonoBehaviour
 
         UpdateMovement();
         UpdateFishing();
-        UpdateIcon();
     }
 
     private void UpdateMovement()
@@ -372,6 +370,7 @@ public class PlayerBehavior : MonoBehaviour
 
     public IEnumerator ControllerVibrate(float lewF, float highF, float time)
     {
+        if (string.IsNullOrEmpty(_gamePadName)) yield break;
         var gamepad = InputSystem.GetDevice<Gamepad>(new InternedString(_gamePadName));
         gamepad.SetMotorSpeeds(lewF, highF);
 
@@ -400,34 +399,7 @@ public class PlayerBehavior : MonoBehaviour
         StartCoroutine(MoveUp());
     }
 
-    private void UpdateIcon()
-    {
-        if (!_icon) return;
-        float offset = 0.5f;
-        Debug.Log(offset);
-        float screenHalfWidth = 9.0f;
-        float screenHalfHeight = 5.0f;
-       
-        if(transform.position.x < -screenHalfWidth)
-        {
-            _icon.transform.position = new Vector3(-screenHalfWidth + offset, _icon.transform.position.y, _icon.transform.position.z);
-            _icon.enabled = true;
-        }
-        else if(transform.position.x > screenHalfWidth)
-        {
-            _icon.transform.position = new Vector3(screenHalfWidth - offset, _icon.transform.position.y, _icon.transform.position.z);
-            _icon.enabled = true;
-        }
-        else if (transform.position.y > screenHalfHeight)
-        {
-            _icon.transform.position = new Vector3(_icon.transform.position.x, screenHalfHeight - offset, _icon.transform.position.z);
-            _icon.enabled = true;
-        }
-        else
-        {
-            _icon.enabled = false;
-        }
-    }
+
 
     private void UpdateFishing()
     {
