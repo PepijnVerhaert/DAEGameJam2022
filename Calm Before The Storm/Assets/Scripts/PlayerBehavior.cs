@@ -115,7 +115,6 @@ public class PlayerBehavior : MonoBehaviour
             }
             _fishing = false;
             _fishingCooldownTimer = _fishingCooldownTime;
-            _fishingWaitTime = 0.0f;
         }
         if(_animator != null)
         {
@@ -385,6 +384,11 @@ public class PlayerBehavior : MonoBehaviour
         {
             _animator.SetBool("IsDead", true);
         }
+        if (_animator != null)
+        {
+            _animator.SetTrigger("Ghost");
+        }
+
 
         StartCoroutine(MoveUp());
     }
