@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8eb6dea607c71d5409dda54beb40cd0a
+guid: 8464ec0a314fcfd43a446bc4983f37e4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spritesheet_fishermanghost_0
+      name: spritesheet_YellowGhost_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8594d70ba87c50c43b24d7ddb5824a8b
-      internalID: 1390270846
+      spriteID: c8f4606eb2949ab4992ea767d0f77f48
+      internalID: -322042201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet_fishermanghost_1
+      name: spritesheet_YellowGhost_1
       rect:
         serializedVersion: 2
         x: 1017
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e0032f6c62165047b2dc7b079a14ec3
-      internalID: -343776368
+      spriteID: eafe56e9ec0b9c34297e2caa5ab2a564
+      internalID: 2025245191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet_fishermanghost_2
+      name: spritesheet_YellowGhost_2
       rect:
         serializedVersion: 2
         x: 2034
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69bdf18ab6784f04f8298b7cfcb4265b
-      internalID: -758623319
+      spriteID: a196b4415c1100c4abc344d95162b5c0
+      internalID: 1999557832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet_fishermanghost_3
+      name: spritesheet_YellowGhost_3
       rect:
         serializedVersion: 2
         x: 3051
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01dd9986d93b7ba4a908de23eff5aa58
-      internalID: 376859177
+      spriteID: b92fb33915477374390b8ea4c0dcea2c
+      internalID: -1684933267
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet_fishermanghost_4
+      name: spritesheet_YellowGhost_4
       rect:
         serializedVersion: 2
         x: 4068
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1624d596c4209f46acd1c0b318e4d83
-      internalID: 1666922264
+      spriteID: 52f0918dabe914e41869ccbc1fb91e0a
+      internalID: -2106534281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet_fishermanghost_5
+      name: spritesheet_YellowGhost_5
       rect:
         serializedVersion: 2
         x: 5085
@@ -223,14 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ed96f244b4496f4fadfdaede0845972
-      internalID: 1700068617
+      spriteID: e8bc4ef0565ab234da84899895bc0bba
+      internalID: -1208138485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet_fishermanghost_6
+      name: spritesheet_YellowGhost_6
       rect:
         serializedVersion: 2
         x: 6102
@@ -244,14 +244,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82900d9e69c22b44aa88afd7f2c0d2cb
-      internalID: -2065725805
+      spriteID: 613caf933bbf2b14fa150c0d66bd3b79
+      internalID: 33711304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet_fishermanghost_7
+      name: spritesheet_YellowGhost_7
       rect:
         serializedVersion: 2
         x: 7119
@@ -265,14 +265,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0485daf677c2bea4dbce9b56826d8b21
-      internalID: 1857703766
+      spriteID: 75f118c435e62684d996a621d33431f4
+      internalID: -161890884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet_fishermanghost_8
+      name: spritesheet_YellowGhost_8
       rect:
         serializedVersion: 2
         x: 8136
@@ -286,8 +286,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c135dee4a91c8fe49b09ea13c48eb824
-      internalID: 715034839
+      spriteID: feeb2bebdaf4bd84dbba5049750d3cf3
+      internalID: 709726296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_YellowGhost_9
+      rect:
+        serializedVersion: 2
+        x: 9153
+        y: 0
+        width: 1017
+        height: 1311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89e8fd4f509b4e44f9d604a3fe1f35e3
+      internalID: -812495327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_YellowGhost_10
+      rect:
+        serializedVersion: 2
+        x: 10170
+        y: 0
+        width: 1017
+        height: 1311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2561ba27aee299408d3039e4c4d7edb
+      internalID: -193425315
       vertices: []
       indices: 
       edges: []
@@ -303,15 +345,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Spritesheet_fishermanghost_3: 376859177
-      Spritesheet_fishermanghost_8: 715034839
-      Spritesheet_fishermanghost_0: 1390270846
-      Spritesheet_fishermanghost_7: 1857703766
-      Spritesheet_fishermanghost_6: -2065725805
-      Spritesheet_fishermanghost_5: 1700068617
-      Spritesheet_fishermanghost_2: -758623319
-      Spritesheet_fishermanghost_1: -343776368
-      Spritesheet_fishermanghost_4: 1666922264
+      spritesheet_YellowGhost_8: 709726296
+      spritesheet_YellowGhost_9: -812495327
+      spritesheet_YellowGhost_0: -322042201
+      spritesheet_YellowGhost_2: 1999557832
+      spritesheet_YellowGhost_10: -193425315
+      spritesheet_YellowGhost_4: -2106534281
+      spritesheet_YellowGhost_7: -161890884
+      spritesheet_YellowGhost_5: -1208138485
+      spritesheet_YellowGhost_6: 33711304
+      spritesheet_YellowGhost_3: -1684933267
+      spritesheet_YellowGhost_1: 2025245191
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
