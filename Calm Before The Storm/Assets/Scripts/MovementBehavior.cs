@@ -22,9 +22,9 @@ public class MovementBehavior : MonoBehaviour
         _rigidBody.velocity = new Vector2(xVelocity, yVelocity);
     }
 
-    public void MoveX(float valueX, Vector2 maxVel, float movementSpeed)
+    public void Move(float moveXDirection, Vector2 maxVel, float movementSpeed)
     {
-        _rigidBody.AddForce(new Vector2(valueX * movementSpeed, 0f));
+        _rigidBody.AddForce(new Vector2(moveXDirection * movementSpeed, 0f));
         float xVelocity = Mathf.Clamp(_rigidBody.velocity.x, -maxVel.x, maxVel.x);
         float yVelocity = Mathf.Clamp(_rigidBody.velocity.y, -maxVel.y, maxVel.y);
         _rigidBody.velocity = new Vector2(xVelocity, yVelocity);

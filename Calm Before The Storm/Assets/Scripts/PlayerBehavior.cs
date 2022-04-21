@@ -283,7 +283,7 @@ public class PlayerBehavior : MonoBehaviour
             speed = _movementSpeedInAir;
         }
 
-        _movementBehavior.MoveX(moveX, _maxVelocity, speed);
+        _movementBehavior.Move(moveX, _maxVelocity, speed);
         ResetDelay();
     }
 
@@ -403,7 +403,11 @@ public class PlayerBehavior : MonoBehaviour
             yield return null;
         }
 
-        // transform to seagull
+
+        _collider.enabled = true;
+        _collider.isTrigger = true;
+        GetComponent<SeagullPlayerBehavior>().enabled = true;
+
         enabled = false;
     }
 
