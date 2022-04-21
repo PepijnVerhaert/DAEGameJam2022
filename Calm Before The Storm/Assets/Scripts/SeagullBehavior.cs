@@ -6,6 +6,7 @@ public class SeagullBehavior : MonoBehaviour
 {
     [SerializeField] private float _movementSpeed = 20f;
     [SerializeField] bool _isMovingLeft = false;
+    [SerializeField] private float _stunDuration = 0.5f;
     [SerializeField] private float _knockbackForce = 50f;
     private int _moveDirection;
 
