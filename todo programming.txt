@@ -1,0 +1,19 @@
+lighning
+knockback enemies
+seagull flip
+death box
+fishing
+background scroll
+remove raycasts
+UI
+HUD
+spawn points close to windows
+remove side rays
+decrease amount of time spawns
+
+color players
+dead body
+
+sound
+screenshake
+controller vibration

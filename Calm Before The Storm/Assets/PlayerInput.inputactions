@@ -33,19 +33,10 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MovementSeagullHorizontal",
-                    "type": "Button",
-                    "id": "3bfc2808-6afb-4b05-8121-cb0e404f6d11",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "MovementSeagullVertical",
-                    "type": "Button",
-                    "id": "6e792d48-0edc-4e0d-80e6-90bb3333c1a4",
-                    "expectedControlType": "Button",
+                    "name": "MovementSeagull",
+                    "type": "PassThrough",
+                    "id": "b3bc95e5-410f-4274-ac98-943992d912c0",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -141,136 +132,15 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "DPad",
-                    "id": "b5e7239b-38e5-4b33-8040-e5d8f51682cf",
-                    "path": "1DAxis",
+                    "name": "",
+                    "id": "23348671-3a05-4b93-95d2-096480359b6d",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "MovementSeagullHorizontal",
-                    "isComposite": true,
+                    "groups": "Controller",
+                    "action": "MovementSeagull",
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "2cd1be08-66f5-4fe6-9ef8-f6d373fcd880",
-                    "path": "<Gamepad>/dpad/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "MovementSeagullHorizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "146f56bc-4533-4c04-b3f0-032f95aa752d",
-                    "path": "<Gamepad>/dpad/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "MovementSeagullHorizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Joystick",
-                    "id": "d51912cc-4e43-4f65-bfef-65337e93eaed",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MovementSeagullHorizontal",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "0d839874-dc0b-4de9-8812-f6b0ea8abc0b",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "MovementSeagullHorizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "2ab2f638-8321-4043-b0cf-75ff6c0b7103",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "MovementSeagullHorizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "DPad",
-                    "id": "5af119b2-8357-4fab-87ae-750572f33ece",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MovementSeagullVertical",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "728fdca0-9a64-4fac-ba6f-fda9f6cc1f8a",
-                    "path": "<Gamepad>/dpad/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "MovementSeagullVertical",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "5aea0e71-c3e3-4888-b819-0b30255298dd",
-                    "path": "<Gamepad>/dpad/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "MovementSeagullVertical",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Joystick",
-                    "id": "a523b644-4638-49c6-a3d2-131ddc56acd1",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MovementSeagullVertical",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "110c74b4-a331-49db-965a-d011bfcb52df",
-                    "path": "<Gamepad>/leftStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "MovementSeagullVertical",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "baf7c3e5-1411-4146-a976-f65075401995",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "MovementSeagullVertical",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         }

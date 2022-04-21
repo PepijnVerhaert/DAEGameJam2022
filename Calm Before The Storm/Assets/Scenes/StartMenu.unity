@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_PlayerPrefab
       value: 
       objectReference: {fileID: 3514918238672657631, guid: ae2536356a273664abdac4b69257a89f, type: 3}
+    - target: {fileID: 3067089886400656766, guid: d20be3f8fb4053c4d819b14cdcb34ccf, type: 3}
+      propertyPath: gameScene
+      value: SariScene
+      objectReference: {fileID: 0}
     - target: {fileID: 4833678230420703605, guid: d20be3f8fb4053c4d819b14cdcb34ccf, type: 3}
       propertyPath: m_Name
       value: StartMenu
