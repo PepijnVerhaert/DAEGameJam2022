@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1909195646521742178, guid: bf3a04726f139ec44966eeab861fd8a2, type: 3}
       propertyPath: _calmDurationStart
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1909195646521742178, guid: bf3a04726f139ec44966eeab861fd8a2, type: 3}
       propertyPath: _stormDurationStart
@@ -498,8 +498,16 @@ PrefabInstance:
       value: AiSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
+      propertyPath: _spawnIncrease
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
       propertyPath: _fishPercentage
-      value: 1
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
+      propertyPath: _fishSpawnHeight
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
       propertyPath: _spawnPercentage
@@ -507,7 +515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
       propertyPath: _krakenPercentage
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
       propertyPath: _krakenSpawnHeight
@@ -515,7 +523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2894440908898899800, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
       propertyPath: _seagullPercentage
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8705231370574395911, guid: c08aa0de8fe2fd04ab13b2bedcde062a, type: 3}
       propertyPath: m_RootOrder

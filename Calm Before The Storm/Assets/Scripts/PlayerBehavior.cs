@@ -74,11 +74,19 @@ public class PlayerBehavior : MonoBehaviour
             {
                 _fishingWaitTimer = _fishingWaitTime;
                 _fishing = true;
+                if (_animator != null)
+                {
+                    _animator.SetBool("Fishing", true);
+                }
             }
         }
         else if(_fishing)
         {
             _fishing = false;
+            if (_animator != null)
+            {
+                _animator.SetBool("Fishing", false);
+            }
             _fishingWaitTimer = 0.0f;
             _fishingCooldownTimer = _fishingCooldownTime;
         }
@@ -94,9 +102,17 @@ public class PlayerBehavior : MonoBehaviour
         _stunTimer = time;
         if(_fishing)
         {
+            if (_animator != null)
+            {
+                _animator.SetBool("Fishing", false);
+            }
             _fishing = false;
             _fishingCooldownTimer = _fishingCooldownTime;
             _fishingWaitTime = 0.0f;
+        }
+        if(_animator != null)
+        {
+            _animator.SetBool("KnockedBack", true);
         }
     }
 
@@ -139,7 +155,32 @@ public class PlayerBehavior : MonoBehaviour
 
     private void Update()
     {
+        if (_animator != null)
+        {
+            _animator.SetBool("Running", false);
+        }
+
+        transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+
         _stunTimer -= Time.deltaTime;
+        if (_stunTimer <= 0f)
+        {
+            if (_animator != null)
+            {
+                _animator.SetBool("KnockedBack", false);
+            }
+        }
+        else
+        {
+            if (_rigidBody.velocity.x > 0f)
+            {
+                transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            }
+            else
+            {
+                transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            }
+        }
         if (_stunTimer > 0.0f || _fishing || _isDead) _disableInput = true;
         else
         {
@@ -172,6 +213,32 @@ public class PlayerBehavior : MonoBehaviour
         if (_disableInput) return;
 
         float moveX = _moveInput.ReadValue<float>();
+
+        if(moveX.Equals(0f))
+        {
+            if (_animator != null)
+            {
+                _animator.SetBool("Running", false);
+            }
+        }
+        else
+        {
+            if (_isGrounded)
+            {
+                if (_animator != null)
+                {
+                    _animator.SetBool("Running", true);
+                }
+            }
+            if (moveX > 0f)
+            {
+                transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            }
+            else
+            {
+                transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            }
+        }
 
         if (_stormBehavior.IsCalm && _isCalmPreviousFrame)
         {
@@ -228,6 +295,10 @@ public class PlayerBehavior : MonoBehaviour
         if (_rigidBody.velocity.y > _negativeYCollisionThreshHold)
         {
             _isGrounded = false;
+            if (_animator != null)
+            {
+                _animator.SetBool("JumpingUp", true);
+            }
             return;
         }
 
@@ -237,10 +308,19 @@ public class PlayerBehavior : MonoBehaviour
         if (hitInfoIsGrounded.collider && transform.position.y + _playerLength / 10.0f > hitInfoIsGrounded.point.y)
         {
             _isGrounded = true;
+            if (_animator != null)
+            {
+                _animator.SetBool("JumpingUp", false);
+                _animator.SetBool("JumpingDown", false);
+            }
         }
         else
         {
             _isGrounded = false;
+            if (_animator != null)
+            {
+                _animator.SetBool("JumpingDown", true);
+            }
         }
 
         Debug.DrawRay(transform.position, -transform.up * _rayDistanceIsGrounded, Color.yellow);
@@ -279,6 +359,10 @@ public class PlayerBehavior : MonoBehaviour
     public void OnDeath()
     {
         _isDead = true;
+        if (_animator != null)
+        {
+            _animator.SetBool("IsDead", true);
+        }
         StartCoroutine(MoveUp());
     }
 
@@ -287,9 +371,13 @@ public class PlayerBehavior : MonoBehaviour
         _fishingCooldownTimer -= Time.deltaTime;
         _fishingWaitTimer -= Time.deltaTime;
 
-        if (!_fishing || _fishingWaitTimer > 0.0f || _fishingCooldownTimer > 0.0f) return;
-
+        if (!_fishing || _fishingWaitTimer > 0.0f || _fishingCooldownTimer > 0.0f)
+        {
+            return;
+        }
         _fishingElapsed += Time.deltaTime;
+
+        transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
 
         float fishingSpeed = _fishingSpeedCalm;
         if(_stormBehavior && !_stormBehavior.IsCalm) fishingSpeed = _fishingSpeedStorm;
