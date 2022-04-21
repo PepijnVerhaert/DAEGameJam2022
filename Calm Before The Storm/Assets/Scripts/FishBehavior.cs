@@ -7,7 +7,7 @@ public class FishBehavior : MonoBehaviour
     [SerializeField] private SpriteRenderer _sprite = null;
     private Rigidbody2D _rigidBody2D = null;
     [SerializeField] private float _jumpForce = 300.0f;
-    [SerializeField] private float _knockBackForce = 200.0f;
+    [SerializeField] private Vector2 _knockBackForce = new Vector2(500, 300);
     [SerializeField] private float _stunDuration = 0.5f;
     [SerializeField] private float _xMoveForce = 10.0f;
     [SerializeField] private int _direction = 1;
@@ -74,8 +74,8 @@ public class FishBehavior : MonoBehaviour
                 Rigidbody2D playerRB = player.GetComponent<Rigidbody2D>();
                 if (playerRB)
                 {
-                    Vector2 dir = new Vector2(_direction, 1.5f);
-                    playerRB.AddForce(dir.normalized * _knockBackForce);
+                    Vector2 knockback = new Vector2(_knockBackForce.x * _direction, _knockBackForce.y);
+                    playerRB.AddForce(knockback);
                 }
                 StartCoroutine(player.ControllerVibrate(0.5f, 1f, 0.1f));
             }

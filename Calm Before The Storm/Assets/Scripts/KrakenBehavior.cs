@@ -13,7 +13,7 @@ public class KrakenBehavior : MonoBehaviour
     private float _yMovement = 0.0f;
     private bool _hasAttacked = false;
 
-    [SerializeField] private float _knockBackForce = 200.0f;
+    [SerializeField] private Vector2 _knockBackForce = new Vector2(500, 300);
     [SerializeField] private float _stunDuration = 1.0f;
 
     void Update()
@@ -68,9 +68,10 @@ public class KrakenBehavior : MonoBehaviour
                 if (playerRB)
                 {
                     bool playerLeft = player.transform.position.x < transform.position.x;
-                    Vector2 dir = new Vector2(1.0f, 1.5f);
-                    if (playerLeft) dir.x = -1.0f;
-                    playerRB.AddForce(dir.normalized * _knockBackForce);
+                    float dir = 1f;
+                    if (playerLeft) dir = -1.0f;
+                    Vector2 knockback = new Vector2(_knockBackForce.x * dir, _knockBackForce.y);
+                    playerRB.AddForce(knockback);
                     StartCoroutine(player.ControllerVibrate(0.5f, 1f, 0.1f));
                 }
             }
