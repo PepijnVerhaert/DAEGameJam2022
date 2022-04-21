@@ -22,6 +22,9 @@ public class BoatBehavior : MonoBehaviour
     [SerializeField]
     private float _driftStrength = 1;
 
+    [SerializeField] GameObject _score;
+    private Vector3 _originalPosScore;
+
     //gradual tilt change
     [SerializeField]
     private float _tiltSpeedMaxChange = 10;
@@ -56,6 +59,7 @@ public class BoatBehavior : MonoBehaviour
         _currentTiltSpeed = _calmTiltSpeed;
         _currentTiltStrength = _calmTiltStrength;
 
+        _originalPosScore = _score.transform.position;
     }
 
     // Update is called once per frame
@@ -126,5 +130,8 @@ public class BoatBehavior : MonoBehaviour
 
         //update boat transform
         transform.SetPositionAndRotation(newPos, Quaternion.Euler(0, 0, angle));
+
+        // Update score
+        _score.transform.SetPositionAndRotation(newPos, Quaternion.Euler(0, 0, angle));
     }
 }

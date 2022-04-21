@@ -42,6 +42,8 @@ public class PlayerBehavior : MonoBehaviour
     private float _changeDirCurrent = 0f;
     [SerializeField] private float _jumpForce = 500f;
 
+    private Vector3 _startPosition;
+
     [Header("Storm")]
     [SerializeField] private float _calmDelay = 3f;
     private float _calmDelayCurrent = 0f;
@@ -68,6 +70,11 @@ public class PlayerBehavior : MonoBehaviour
     public bool IsDead
     {
         get { return _isDead; }
+    }
+
+    private void Awake()
+    {
+        _startPosition = transform.position;
     }
 
     public void Fish(InputAction.CallbackContext context)
@@ -414,6 +421,12 @@ public class PlayerBehavior : MonoBehaviour
         _rigidBody.velocity = Vector2.zero;
         _rigidBody.gravityScale = 0f;
         _collider.enabled = false;
+
+        if (transform.position.x < -9.5f || transform.position.x > 9.5f)
+        {
+            transform.position = new Vector2(_startPosition.x, transform.position.y);
+        }
+
         while (transform.position.y < _yPositionToTransform)
         {
             float vertical = _movementSpeedUp * Time.deltaTime;
