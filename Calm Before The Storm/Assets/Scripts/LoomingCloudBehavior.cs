@@ -36,11 +36,10 @@ public class LoomingCloudBehavior : MonoBehaviour
         {
             transform.Translate(0, _leaveDistance, 0);
         }
-<<<<<<< Updated upstream
+
         _weatherChangeTimeAcc = 0f;
-=======
+
         _originalX = transform.position.x;
->>>>>>> Stashed changes
     }
 
     // Update is called once per frame
