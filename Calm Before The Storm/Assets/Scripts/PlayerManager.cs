@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -87,15 +89,13 @@ public class PlayerManager : MonoBehaviour
                 GameObject player = Instantiate(playerPrefab, spawnTransforms[i].position, Quaternion.identity);
                 PlayerBehavior playerComp = player.GetComponent<PlayerBehavior>();
                 _players.Add(playerComp);
+
+                // Mark gamepad x as being for player x.
+                string name = "Player" + i;
+                InputSystem.SetDeviceUsage(Gamepad.all[i], name);
+                var gamepad = InputSystem.GetDevice<Gamepad>(new InternedString(name));
+                playerComp.Controller = gamepad;
             }
         }
-    }
-    void Start()
-    {
-    }
-
-    void Update()
-    {
-        
     }
 }

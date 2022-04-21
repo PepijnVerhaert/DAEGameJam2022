@@ -49,7 +49,7 @@ public class FishBehavior : MonoBehaviour
         UpdateRotation();
 
         //delete if under screen
-        if (transform.position.y < -Screen.height)
+        if (transform.position.y < -6f)
         {
             Destroy(gameObject);
         }
@@ -77,6 +77,7 @@ public class FishBehavior : MonoBehaviour
                     Vector2 dir = new Vector2(_direction, 1.5f);
                     playerRB.AddForce(dir.normalized * _knockBackForce);
                 }
+                StartCoroutine(player.ControllerVibrate(0.5f, 1f, 0.1f));
             }
         }
     }

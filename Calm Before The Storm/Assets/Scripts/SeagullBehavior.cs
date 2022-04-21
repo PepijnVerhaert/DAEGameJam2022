@@ -77,10 +77,13 @@ public class SeagullBehavior : MonoBehaviour
             {
                 if (_colliders[i] == null)
                 {
-                    collision.gameObject.GetComponent<PlayerBehavior>().Stun(_stunDuration);
+                    var behavior = collision.gameObject.GetComponent<PlayerBehavior>();
+                    behavior.Stun(_stunDuration);
                     Vector2 knockback = new Vector2(_knockbackForce.x * _moveDirection, _knockbackForce.y);
                     collision.gameObject.GetComponent<Rigidbody2D>().AddForce(knockback);
                     _colliders[i] = collision;
+
+                    StartCoroutine(behavior.ControllerVibrate(0.5f, 1f, 0.1f));
                     return;
                 }
                 else if(_colliders[i] == collision)

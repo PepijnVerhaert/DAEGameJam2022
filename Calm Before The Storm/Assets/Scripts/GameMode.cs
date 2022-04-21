@@ -9,6 +9,7 @@ public class GameMode : MonoBehaviour
     [SerializeField] private List<Transform> _spawnTransforms = new List<Transform>();
     [SerializeField] private GameObject _playerPrefab = null;
     //private int _maxScoreFishing = 0;
+    [SerializeField] private float _loadToEndScreenTime = 2f;
 
     void Start()
     {
@@ -26,10 +27,16 @@ public class GameMode : MonoBehaviour
 
         if(nrPlayersAlive <= 0)
         {
-            SceneManager.LoadScene("EndMenu");
-            players.Clear();
+            StartCoroutine(LoadEndScene());
         }
     }
 
+    IEnumerator LoadEndScene()
+    {
+        yield return new WaitForSeconds(_loadToEndScreenTime);
+        SceneManager.LoadScene("EndMenu");
+        var players = PlayerManager.Instance.Players;
+        players.Clear();
+    }
 
 }

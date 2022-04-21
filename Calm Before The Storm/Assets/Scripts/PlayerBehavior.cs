@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 
 public class PlayerBehavior : MonoBehaviour
 {
@@ -56,6 +57,8 @@ public class PlayerBehavior : MonoBehaviour
 
     private StormBehavior _stormBehavior;
 
+    private Gamepad _gamePad;
+
     //fishing
     private bool _fishingInput = false;
     private bool _fishing = false;
@@ -71,6 +74,11 @@ public class PlayerBehavior : MonoBehaviour
     public bool IsDead
     {
         get { return _isDead; }
+    }
+
+    public Gamepad Controller
+    {
+        set { _gamePad = value; }
     }
 
     private void Awake()
@@ -361,11 +369,21 @@ public class PlayerBehavior : MonoBehaviour
 
     }
 
+    public IEnumerator ControllerVibrate(float lewF, float highF, float time)
+    {
+        _gamePad.SetMotorSpeeds(lewF, highF);
+
+        yield return new WaitForSeconds(time);
+
+        _gamePad.SetMotorSpeeds(0f, 0f);
+    }
+
     public void OnDeath()
     {
         _isDead = true;
+        StartCoroutine(ControllerVibrate(1f, 2f, 0.5f));
 
-        if(_audioSource && _waterSplash)
+        if (_audioSource && _waterSplash)
         {
             _audioSource.clip = _waterSplash;
             _audioSource.Play();

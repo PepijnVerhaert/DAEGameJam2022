@@ -68,8 +68,6 @@ public class SeagullPlayerBehavior : MonoBehaviour
         // reset velocity for snapping turns
         if (move.x.Equals(0f) && move.y.Equals(0f))
         {
-            //_rigidBody.velocity = new Vector2(0f, 0f);
-            //_rigidBody.velocity = new Vector2(_rigidBody.velocity.x, 0f);
             _rigidBody.velocity = Vector2.Lerp(_rigidBody.velocity, Vector2.zero, Time.deltaTime * 4f);
         }
 
@@ -103,9 +101,10 @@ public class SeagullPlayerBehavior : MonoBehaviour
                 }
             }
 
+            PlayerBehavior behavior = collision.gameObject.GetComponent<PlayerBehavior>();
             if (_stormBehavior.IsCalm)
             {
-                collision.gameObject.GetComponent<PlayerBehavior>().Stun(0.01f);
+                behavior.Stun(0.01f);
             }
             else
             {
@@ -124,6 +123,7 @@ public class SeagullPlayerBehavior : MonoBehaviour
                     Vector2 knockback = new Vector2(_knockbackForce.x * moveDir, _knockbackForce.y);
                     collision.gameObject.GetComponent<Rigidbody2D>().AddForce(knockback);
                     _playerHitCooldown[playerIdx] = 0f;
+                    StartCoroutine(behavior.ControllerVibrate(0.5f, 1f, 0.1f));
                 }
             }
         }
