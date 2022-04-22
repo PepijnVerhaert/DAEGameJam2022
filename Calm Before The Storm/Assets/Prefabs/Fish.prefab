@@ -49,10 +49,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 4151744020931955869}
   _jumpForce: 500
-  _knockBackForce: 200
+  _knockBackForce: {x: 500, y: 300}
   _stunDuration: 0.5
   _xMoveForce: 200
   _direction: 1
+  _JumpForceBounds: {x: 700, y: 400}
 --- !u!58 &2636541648975780880
 CircleCollider2D:
   m_ObjectHideFlags: 0
