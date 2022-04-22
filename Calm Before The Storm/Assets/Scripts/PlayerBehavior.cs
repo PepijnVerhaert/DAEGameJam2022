@@ -158,6 +158,7 @@ public class PlayerBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
+        UpdateMovement();
         UpdateIsGrounded();
         CheckPlatformCollision();
     }
@@ -229,7 +230,7 @@ public class PlayerBehavior : MonoBehaviour
             _calmDelayCurrent = 0f;
         }
 
-        UpdateMovement();
+        //UpdateMovement();
         UpdateFishing();
         UpdateScoreOverTime();
     }
@@ -490,7 +491,6 @@ public class PlayerBehavior : MonoBehaviour
             _score += fishingPoints;
 
             if(_onFishAFishSound) _onFishAFishSound.Play();
-            Debug.Log("FishScore: " + _score);
         }
     }
 

@@ -59,7 +59,7 @@ public class SeagullPlayerBehavior : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Vector2 move = _moveInput.ReadValue<Vector2>();
         _movementBehavior.Move(move, new Vector2(_maxVelocity, _maxVelocity), _movementSpeed);
@@ -78,8 +78,6 @@ public class SeagullPlayerBehavior : MonoBehaviour
         {
             _rigidBody.velocity = Vector2.Lerp(_rigidBody.velocity, Vector2.zero, Time.deltaTime * 4f);
         }
-
-
 
         for (int i = 0; i < _playerHitCooldown.Length; i++)
         {

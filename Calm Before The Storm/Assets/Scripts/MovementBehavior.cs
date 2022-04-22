@@ -16,6 +16,10 @@ public class MovementBehavior : MonoBehaviour
 
     public void Move(Vector2 moveDirection, Vector2 maxVel, float movementSpeed)
     {
+        if (!_rigidBody)
+        {
+            _rigidBody = GetComponent<Rigidbody2D>();
+        }
         _rigidBody.AddForce(moveDirection * movementSpeed);
         float xVelocity = Mathf.Clamp(_rigidBody.velocity.x, -maxVel.x, maxVel.x);
         float yVelocity = Mathf.Clamp(_rigidBody.velocity.y, -maxVel.y, maxVel.y);
@@ -24,6 +28,10 @@ public class MovementBehavior : MonoBehaviour
 
     public void Move(float moveXDirection, Vector2 maxVel, float movementSpeed)
     {
+        if (!_rigidBody)
+        {
+            _rigidBody = GetComponent<Rigidbody2D>();
+        }
         _rigidBody.AddForce(new Vector2(moveXDirection * movementSpeed, 0f));
         float xVelocity = Mathf.Clamp(_rigidBody.velocity.x, -maxVel.x, maxVel.x);
         float yVelocity = Mathf.Clamp(_rigidBody.velocity.y, -maxVel.y, maxVel.y);
