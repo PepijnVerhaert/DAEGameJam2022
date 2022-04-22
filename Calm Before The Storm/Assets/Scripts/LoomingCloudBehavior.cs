@@ -29,10 +29,13 @@ public class LoomingCloudBehavior : MonoBehaviour
 
     private float _originalX;
 
+    [SerializeField]
+    private bool _instaLeave = true;
+
     // Start is called before the first frame update
     void Start()
     {
-        if (_isCalm)
+        if (_isCalm && _instaLeave)
         {
             transform.Translate(0, _leaveDistance, 0);
         }

@@ -1745,7 +1745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1a5a24990117d499fe228d8278d60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCalm: 0
+  _isCalm: 1
   _enterSpeed: 4
   _leaveSpeed: 4
   _enterDelay: 0
@@ -1754,6 +1754,7 @@ MonoBehaviour:
   _swingAngle: 0
   _swingStrength: 0
   _swingSpeed: 0
+  _instaLeave: 0
 --- !u!4 &2110444708
 Transform:
   m_ObjectHideFlags: 0
