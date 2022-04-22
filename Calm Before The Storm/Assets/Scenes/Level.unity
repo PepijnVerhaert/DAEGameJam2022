@@ -509,7 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _zoomInOut: {fileID: 1761100980}
   _loomingCloud: {fileID: 2110444707}
-  _durationDisableInput: 2.5
+  _durationDisableInput: 1.5
 --- !u!4 &1030848992
 Transform:
   m_ObjectHideFlags: 0
