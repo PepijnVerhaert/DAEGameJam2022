@@ -78,6 +78,7 @@ public class PlayerBehavior : MonoBehaviour
     private float _scoreOverTimeElapsed = 0.0f;
     [SerializeField] private float _scoreOverTimeInterval = 3.0f;
 
+    [SerializeField] private GameObject _deadBody;
 
     private bool _noMove = false;
     public bool DisableInput
@@ -422,6 +423,9 @@ public class PlayerBehavior : MonoBehaviour
             _animator.SetTrigger("Ghost");
         }
 
+        var hightObj = GameObject.Find("DeadBodyHeight");
+        Vector2 pos = new Vector2(transform.position.x, hightObj.transform.position.y);
+        Instantiate(_deadBody, pos, Quaternion.identity);
 
         StartCoroutine(MoveUp());
     }

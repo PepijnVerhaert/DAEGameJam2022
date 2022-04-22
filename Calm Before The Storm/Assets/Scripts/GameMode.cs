@@ -14,6 +14,8 @@ public class GameMode : MonoBehaviour
 
     private CurtainLiftUpBehavior _curtainBehavior;
 
+    [SerializeField] private List<GameObject> _deadRenee = new List<GameObject>();
+
     void Start()
     {
         PlayerManager.Instance.SpawnPlayers(_spawnTransforms, _playerPrefabs);

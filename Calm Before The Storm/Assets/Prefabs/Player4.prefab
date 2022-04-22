@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4879966835257354454, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
+      propertyPath: _deadBody
+      value: 
+      objectReference: {fileID: 4818058059050018823, guid: 5330545fb2888eb47a7ace4b01e2bf98, type: 3}
     - target: {fileID: 6369533595965029546, guid: 7338855f5f7e5e94cbeb4f832532cfd2, type: 3}
       propertyPath: m_Controller
       value: 
