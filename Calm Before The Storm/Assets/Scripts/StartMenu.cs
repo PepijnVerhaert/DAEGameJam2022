@@ -14,19 +14,25 @@ public class StartMenu : MonoBehaviour
     [SerializeField] private GameObject players4;
 
     [SerializeField] private GameObject controlls;
+    [SerializeField] private AudioSource _clickEffect = null;
 
     private int _timesPressed = 0;
     [SerializeField] private float _delayBeforeSceneSwap = 2f;
 
     public void AddPlayer(InputAction.CallbackContext context)
     {
-        if(context.performed) PlayerManager.Instance.AddPlayer();
+        if (context.performed)
+        {
+            PlayerManager.Instance.AddPlayer();
+            if (_clickEffect) _clickEffect.Play();
+        }
     }
 
     public void RemovePlayer(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
         PlayerManager.Instance.RemovePlayer();
+        if (_clickEffect) _clickEffect.Play();
     }
 
     private IEnumerator SwitchScene()
@@ -44,10 +50,12 @@ public class StartMenu : MonoBehaviour
                 case 0:
                     ++_timesPressed;
                     players1.transform.parent.gameObject.GetComponent<LoomingCloudBehavior>().ChangeWeather(true);
+                    if (_clickEffect) _clickEffect.Play();
                     break;
                 case 1:
                     controlls.GetComponent<LoomingCloudBehavior>().ChangeWeather(true);
                     StartCoroutine(SwitchScene());
+                    if (_clickEffect) _clickEffect.Play();
                     break;
             }
         }

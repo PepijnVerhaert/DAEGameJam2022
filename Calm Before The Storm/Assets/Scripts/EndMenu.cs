@@ -16,6 +16,7 @@ public class EndMenu : MonoBehaviour
 
     [SerializeField] private List<TextMeshProUGUI> _scores = new List<TextMeshProUGUI>();
     [SerializeField] private List<SpriteRenderer> _greyWindows = new List<SpriteRenderer>();
+    [SerializeField] private AudioSource _clickEffect = null;
 
     private void Start()
     {
@@ -41,6 +42,7 @@ public class EndMenu : MonoBehaviour
     {
         if (context.performed)
         {
+            if (_clickEffect) _clickEffect.Play();
             StartCoroutine(Restart());
         }
     }
@@ -56,6 +58,10 @@ public class EndMenu : MonoBehaviour
 
     public void EndGame(InputAction.CallbackContext context)
     {
-        if (context.performed) Application.Quit();
+        if (context.performed)
+        {
+            if (_clickEffect) _clickEffect.Play();
+            Application.Quit();
+        }
     }
 }
