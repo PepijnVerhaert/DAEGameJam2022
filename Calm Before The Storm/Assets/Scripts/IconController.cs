@@ -45,6 +45,11 @@ public class IconController : MonoBehaviour
             _icon.transform.position = new Vector3(_icon.transform.position.x, screenHalfHeight - offset, _icon.transform.position.z);
             _icon.enabled = true;
         }
+        else if (transform.position.y < -screenHalfHeight)
+        {
+            _icon.transform.position = new Vector3(_icon.transform.position.x, -screenHalfHeight + offset, _icon.transform.position.z);
+            _icon.enabled = true;
+        }
         else
         {
             _icon.enabled = false;
