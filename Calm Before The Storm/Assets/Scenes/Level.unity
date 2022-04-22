@@ -1368,7 +1368,7 @@ MonoBehaviour:
   _bottomPosition: 1
   _upSpeed: 0.5
   _downSpeed: 0.5
-  _upDelay: 0
+  _upDelay: 1
   _downDelay: 0
 --- !u!4 &1761100981
 Transform:
@@ -1749,7 +1749,7 @@ MonoBehaviour:
   _enterSpeed: 4
   _leaveSpeed: 4
   _enterDelay: 0
-  _leaveDelay: 0
+  _leaveDelay: 1
   _leaveDistance: 12
   _swingAngle: 0
   _swingStrength: 0

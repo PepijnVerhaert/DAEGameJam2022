@@ -99,6 +99,7 @@ public class PlayerManager : MonoBehaviour
                 string name = "Player" + i;
                 InputSystem.SetDeviceUsage(Gamepad.all[i], name);
                 playerComp.GamepadName = name;
+                player.GetComponent<SeagullPlayerBehavior>().GamepadName = name;
             }
         }
     }

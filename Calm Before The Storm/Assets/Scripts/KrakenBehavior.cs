@@ -72,7 +72,7 @@ public class KrakenBehavior : MonoBehaviour
                     if (playerLeft) dir = -1.0f;
                     Vector2 knockback = new Vector2(_knockBackForce.x * dir, _knockBackForce.y);
                     playerRB.AddForce(knockback);
-                    StartCoroutine(player.ControllerVibrate(0.5f, 1f, 0.1f));
+                    StartCoroutine(player.ControllerVibrate(0.5f, 1f, 0.3f));
                 }
             }
         }

@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 
 public class SeagullPlayerBehavior : MonoBehaviour
 {
@@ -19,6 +21,12 @@ public class SeagullPlayerBehavior : MonoBehaviour
     [SerializeField] private Vector2 _knockbackForce = new Vector2(500, 300);
 
     private StormBehavior _stormBehavior;
+    private string _gamePadName;
+
+    public string GamepadName
+    {
+        set { _gamePadName = value; }
+    }
 
     private void Start()
     {
@@ -79,6 +87,17 @@ public class SeagullPlayerBehavior : MonoBehaviour
         }
     }
 
+    private IEnumerator ControllerVibrate(float lewF, float highF, float time)
+    {
+        if (string.IsNullOrEmpty(_gamePadName)) yield break;
+        var gamepad = InputSystem.GetDevice<Gamepad>(new InternedString(_gamePadName));
+        gamepad.SetMotorSpeeds(lewF, highF);
+
+        yield return new WaitForSeconds(time);
+
+        gamepad.SetMotorSpeeds(0f, 0f);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -100,6 +119,8 @@ public class SeagullPlayerBehavior : MonoBehaviour
                     }
                 }
             }
+
+            StartCoroutine(ControllerVibrate(0.5f, 1f, 0.3f));
 
             PlayerBehavior behavior = collision.gameObject.GetComponent<PlayerBehavior>();
             if (_stormBehavior.IsCalm)

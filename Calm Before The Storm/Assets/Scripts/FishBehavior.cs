@@ -77,7 +77,7 @@ public class FishBehavior : MonoBehaviour
                     Vector2 knockback = new Vector2(_knockBackForce.x * _direction, _knockBackForce.y);
                     playerRB.AddForce(knockback);
                 }
-                StartCoroutine(player.ControllerVibrate(0.5f, 1f, 0.1f));
+                StartCoroutine(player.ControllerVibrate(0.5f, 1f, 0.3f));
             }
         }
     }
