@@ -69,8 +69,8 @@ MonoBehaviour:
   _rayDistanceDown: 0.2
   _rayDistanceIsGrounded: 0.1
   _maxVelocity: {x: 4, y: 10}
-  _movementSpeed: 10
-  _movementSpeedInAir: 8
+  _movementSpeed: 20
+  _movementSpeedInAir: 12
   _changeDirDelay: 0
   _jumpForce: 400
   _calmDelay: 3
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 6369533595965029546}
-  _movementSpeed: 2
+  _movementSpeed: 8
   _maxVelocity: 5
   _maxPlayerHitCooldown: 5
   _knockbackForce: {x: 800, y: 300}

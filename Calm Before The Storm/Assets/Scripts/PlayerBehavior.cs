@@ -158,6 +158,12 @@ public class PlayerBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (_animator != null)
+        {
+            _animator.SetBool("Running", false);
+        }
+        transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+
         UpdateMovement();
         UpdateIsGrounded();
         CheckPlatformCollision();
@@ -180,12 +186,12 @@ public class PlayerBehavior : MonoBehaviour
 
     private void Update()
     {
-        if (_animator != null)
-        {
-            _animator.SetBool("Running", false);
-        }
+        //if (_animator != null)
+        //{
+        //    _animator.SetBool("Running", false);
+        //}
 
-        transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+        //transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
 
         _stunTimer -= Time.deltaTime;
         if (_stunTimer <= 0f)
