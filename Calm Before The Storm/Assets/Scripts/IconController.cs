@@ -29,30 +29,34 @@ public class IconController : MonoBehaviour
         float offset = 0.5f;
         float screenHalfWidth = 9.0f;
         float screenHalfHeight = 5.0f;
-
+        bool outOfBounds = false;
         if (transform.position.x < -screenHalfWidth)
         {
             _icon.transform.position = new Vector3(-screenHalfWidth + offset, _icon.transform.position.y, _icon.transform.position.z);
-            _icon.enabled = true;
+            outOfBounds = true;
         }
-        else if (transform.position.x > screenHalfWidth)
+        if (transform.position.x > screenHalfWidth)
         {
             _icon.transform.position = new Vector3(screenHalfWidth - offset, _icon.transform.position.y, _icon.transform.position.z);
-            _icon.enabled = true;
+            outOfBounds = true;
         }
-        else if (transform.position.y > screenHalfHeight)
+        if (transform.position.y > screenHalfHeight)
         {
             _icon.transform.position = new Vector3(_icon.transform.position.x, screenHalfHeight - offset, _icon.transform.position.z);
-            _icon.enabled = true;
+            outOfBounds = true;
         }
-        else if (transform.position.y < -screenHalfHeight + 1.0f)
+        if (transform.position.y < -screenHalfHeight + 1.0f)
         {
             _icon.transform.position = new Vector3(_icon.transform.position.x, -screenHalfHeight + offset, _icon.transform.position.z);
+            outOfBounds = true;
+        }
+        if(outOfBounds)
+        {
             _icon.enabled = true;
         }
         else
         {
-            _icon.enabled = false;
+            _icon.enabled = true;
         }
     }
 }
