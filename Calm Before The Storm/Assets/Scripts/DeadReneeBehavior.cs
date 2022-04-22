@@ -18,6 +18,6 @@ public class DeadReneeBehavior : MonoBehaviour
     void Update()
     {
         float horizontal = _movementSpeed * Time.deltaTime;
-        transform.position = new Vector2(transform.position.x + horizontal, wave.transform.position.y + heightDif);
+        transform.position = new Vector2(transform.position.x + horizontal, wave.transform.position.y + heightDif -0.5f);
     }
 }
