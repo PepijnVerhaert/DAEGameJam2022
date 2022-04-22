@@ -56,7 +56,7 @@ public class IconController : MonoBehaviour
         }
         else
         {
-            _icon.enabled = true;
+            _icon.enabled = false;
         }
     }
 }
