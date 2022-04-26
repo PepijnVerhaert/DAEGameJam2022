@@ -48,7 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSpeed: 5
   _isMovingLeft: 0
-  _knockbackForce: 300
+  _stunDuration: 0.5
+  _knockbackForce: {x: 500, y: 300}
 --- !u!58 &860942165156415128
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,8 +137,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 3
+  m_SortingLayer: -4
   m_SortingOrder: 0
   m_Sprite: {fileID: -178197232, guid: 16e0553e0d4e17e4c96e8662fccdcd4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
